@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>物件プロデュース | diff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: trias風。白地と紙のベージュ、細い英小文字見出し、写真を少しずらして重ねる。事例が主役 */
+:root{
+  --ink:#2f2d2a; --body:#4a4743; --sub:#8a857c; --line:#dcd8cd;
+  --paper:#f4f2ec; --paper2:#ebe7dc; --accent:#c5c0b2; --wood:#a9805a; --dark:#262523;
+  --serif:"Fahkwang",sans-serif; --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);color:var(--body);background:#fff;line-height:1.95;font-size:16px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.en{font-family:var(--serif);font-weight:300;letter-spacing:.04em;color:var(--ink)}
+:focus-visible{outline:2px solid var(--wood);outline-offset:3px}
+.pad{padding-inline:clamp(20px,6vw,80px)}
+.wrap{max-width:1120px;margin:0 auto}
+
+header{position:fixed;inset:0 0 auto 0;z-index:20;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,40px);background:rgba(255,255,255,.93);backdrop-filter:blur(8px)}
+.logo{display:flex;flex-direction:column;line-height:1.1}
+.logo b{font:300 26px var(--serif);color:var(--ink);letter-spacing:.02em}
+.logo small{font-size:9px;letter-spacing:.14em;color:var(--sub)}
+nav{display:flex;align-items:center;gap:clamp(16px,2.4vw,34px)}
+nav a.l{font:300 15px var(--serif);color:var(--body)}
+nav a.l:hover{color:var(--wood)}
+.pill{display:inline-flex;align-items:center;background:var(--dark);color:#fff;border-radius:999px;padding:12px 26px;font-size:14px;letter-spacing:.06em;transition:background .25s}
+.pill:hover{background:var(--wood)}
+
+section{padding-block:clamp(80px,11vw,150px)}
+h2.en{font-size:clamp(44px,7vw,76px);line-height:1.1}
+.jp{font-size:14px;letter-spacing:.14em;color:var(--sub);margin:6px 0 clamp(36px,5vw,60px)}
+.paper{background:var(--paper)}
+.ph{background:var(--paper2);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.note{font-size:12px;color:var(--sub);margin-top:18px;line-height:1.7}
+.tag{display:inline-block;font-size:11px;letter-spacing:.06em;color:var(--wood);border:1px solid var(--wood);border-radius:3px;padding:0 6px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.more{display:inline-flex;align-items:center;gap:12px;margin-top:28px;font:300 14px var(--serif);color:var(--ink)}
+.more::after{content:"";width:46px;height:1px;background:var(--ink);transition:width .25s}
+.more:hover::after{width:66px}
+.cta{display:inline-flex;align-items:center;gap:14px;margin-top:36px;background:var(--dark);color:#fff;padding:20px 44px;border-radius:999px;font-size:15px;letter-spacing:.08em;transition:background .25s;border:0;cursor:pointer;font-family:inherit}
+.cta:hover{background:var(--wood)}
+.cta::after{content:"→"}
+
+/* FV */
+.fv{padding:calc(72px + clamp(40px,6vw,88px)) clamp(20px,6vw,80px) clamp(70px,9vw,120px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;max-width:1280px;margin:0 auto}
+.fv .k{font:300 14px var(--serif);letter-spacing:.24em;color:var(--wood)}
+.fv h1{font-size:clamp(34px,4.8vw,62px);font-weight:400;line-height:1.45;color:var(--ink);margin:18px 0 26px}
+.fv p{font-size:15px;max-width:30em}
+.fv-photos{position:relative;padding-bottom:18%}
+.fv-photos .a{aspect-ratio:4/5}
+.fv-photos .b{position:absolute;width:52%;aspect-ratio:4/3;right:-4%;bottom:0;border:8px solid #fff}
+
+/* 状況 */
+.sit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.sit article{background:#fff;padding:clamp(24px,3vw,40px);border-top:2px solid var(--wood)}
+.sit .en{font-size:13px;letter-spacing:.2em;color:var(--wood)}
+.sit h3{font-size:20px;font-weight:500;color:var(--ink);margin:8px 0 10px;line-height:1.5}
+.sit p{font-size:14px}
+.sit-lead{font-size:clamp(18px,2.2vw,24px);color:var(--ink);line-height:1.8;margin-bottom:clamp(28px,4vw,48px);max-width:30em}
+
+/* 強み */
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:center}
+.why .ph{aspect-ratio:4/5}
+.why ol{list-style:none;padding:0}
+.why li{padding:24px 0;border-top:1px solid var(--line)}
+.why li:last-child{border-bottom:1px solid var(--line)}
+.why li .en{font-size:13px;letter-spacing:.2em;color:var(--wood)}
+.why li h3{font-size:20px;font-weight:500;color:var(--ink);margin:4px 0 6px;line-height:1.5}
+.why li p{font-size:14px}
+
+/* 事例 */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px)}
+.tile{position:relative;aspect-ratio:4/3;padding:0;border:0;cursor:pointer;background:var(--paper2);overflow:hidden;display:block}
+.tile img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transition:transform .5s,opacity .3s}
+.tile:hover img{transform:scale(1.05)}
+.tile span{position:absolute;inset:auto 0 0 0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;font:300 13px var(--serif);letter-spacing:.12em;text-align:left;opacity:0;transition:opacity .3s}
+.tile:hover span,.tile:focus-visible span{opacity:1}
+.tile.empty{background:var(--paper2);color:var(--ink);font-size:14px;line-height:1.8;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;transition:background .25s}
+.tile.empty:hover{background:var(--accent)}
+[hidden]{display:none!important}
+.modal{position:fixed;inset:0;z-index:50;background:#fff;display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);overflow:hidden}
+.m-info{padding:28px clamp(20px,2.4vw,36px) 40px;overflow:auto}
+.m-no{font-size:14px;letter-spacing:.14em;color:var(--ink)}
+.m-cat{margin-top:34px;font-size:15px;letter-spacing:.14em;color:var(--ink)}
+.m-slash{width:28px;height:28px;margin:4px 0;background:linear-gradient(to top right,transparent calc(50% - .6px),var(--ink),transparent calc(50% + .6px))}
+.m-name{font:300 clamp(30px,3.2vw,44px)/1.2 var(--serif);color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+.m-name .tag{font-size:10px;margin-left:0;display:inline-block;margin-top:8px}
+.m-year{margin-top:6px;font-size:14px;color:var(--ink)}
+.m-tabs{display:flex;gap:22px;margin-top:40px}
+.m-tabs button{background:none;border:0;padding:0 0 4px;font-size:16px;letter-spacing:.12em;color:var(--sub);cursor:pointer;border-bottom:2px solid transparent}
+.m-tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.m-panel{margin-top:22px;font-size:14px;line-height:1.9}
+.m-panel dl{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:2px 8px;font-size:14px;line-height:1.9}
+.m-panel dt{color:var(--body)}.m-panel dd{color:var(--ink)}
+.m-stage{display:grid;grid-template-columns:minmax(0,1fr) 64px;padding:20px 0;min-height:0}
+.m-view{position:relative;background:var(--paper);min-height:0;overflow:hidden}
+.m-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .35s}
+.m-view img.fade{opacity:0}
+.m-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--ink);font:300 28px/1 var(--serif);cursor:pointer;padding:0 0 4px}
+.m-arrow:hover{background:#fff}
+.m-arrow.prev{left:12px}.m-arrow.next{right:12px}
+.m-dots{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.m-dots button{width:24px;height:24px;border:0;background:none;padding:0;cursor:pointer;position:relative}
+.m-dots button::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#cfcbc0;transition:background .2s}
+.m-dots button[aria-current="true"]::after{background:var(--ink)}
+.m-x{position:absolute;top:14px;right:14px;z-index:5;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--ink);font-size:28px;cursor:pointer;line-height:1;padding:0 0 3px}
+.m-x:hover{background:var(--paper2)}
+
+/* 数字 */
+.impact{background:var(--dark);color:#d8d4ca}
+.impact h2.en{color:#fff}.impact .jp{color:#9b968b}
+.imp-simple{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.imp-left .lab{font-size:13px;color:#a8a398;letter-spacing:.06em}
+.imp-left .big{font:300 clamp(64px,10vw,124px)/1.05 var(--serif);color:#fff;font-variant-numeric:tabular-nums}
+.imp-left .big small{font-size:.28em;color:var(--accent);margin-left:8px}
+.cmp{display:grid;gap:10px;margin-top:22px}
+.cmp .row{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:10px;align-items:center;font-size:12px;color:#a8a398}
+.cmp .row i{display:block;height:34px;background:#4a4742;position:relative}
+.cmp .row.d i{background:var(--wood)}
+.cmp .row i b{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:300 15px var(--serif);color:#fff;white-space:nowrap}
+.cond{margin-top:16px;font-size:12px;color:#8d887e;line-height:1.8}
+.tbl-wrap{overflow-x:auto}
+table.tree{width:100%;min-width:420px;border-collapse:collapse;font-size:13px}
+.tree th{font:300 12px var(--serif);letter-spacing:.14em;color:#a8a398;text-align:right;padding:8px 10px;border-bottom:1px solid #55524c;white-space:nowrap}
+.tree th:first-child{text-align:left}
+.tree td{padding:13px 10px;border-bottom:1px solid #3d3a36;text-align:right;font:300 16px var(--serif);color:#e6e2d8;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tree td:first-child{text-align:left;font:400 13px var(--sans);color:#d8d4ca;white-space:normal}
+.tree td:first-child i{margin-right:8px}
+.tree tr.lv td{background:rgba(169,128,90,.12)}
+.tree tr.res td{background:var(--wood);color:#fff;border:0;font-size:18px}
+.tree td.pos{color:#f0d9bd}
+.tree tr.res td.pos{color:#fff}
+.impact .dot.v{background:#e6e2d8}
+.impact .note{color:#9b968b;margin-top:20px}
+.impact .cta{background:#fff;color:var(--dark)}.impact .cta:hover{background:var(--wood);color:#fff}
+
+/* フロー */
+.flow-lead{font-size:clamp(17px,2vw,22px);line-height:1.9;color:var(--ink);max-width:34em;margin-bottom:clamp(24px,3vw,36px)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:13px;color:var(--body);margin-bottom:20px}
+.legend span{color:var(--sub);margin-right:4px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.dot.r{background:var(--wood)}.dot.v{background:var(--ink)}.dot.c{background:var(--accent)}
+.stepper{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(8px,1.2vw,16px);position:relative}
+.snode{position:relative;background:none;border:0;padding:0 0 22px;cursor:pointer;display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:10px;font-family:inherit;color:var(--body)}
+.snode .th{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper2);outline:2px solid transparent;outline-offset:2px;transition:outline-color .25s}
+.snode .th img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:saturate(.8);transition:opacity .3s,filter .3s,transform .5s}
+.snode:hover .th img{opacity:.9}
+.snode .th .n{position:absolute;left:0;top:0;background:var(--dark);color:#fff;font:300 13px/1 var(--serif);letter-spacing:.08em;padding:6px 9px;z-index:1}
+.snode .t{font-size:13px;line-height:1.5;font-weight:500;color:var(--ink)}
+.snode .t small{display:block;font:400 11px var(--sans);color:var(--sub)}
+.snode .ind{display:flex;gap:5px;height:10px}
+.snode .ind i{width:10px;height:10px;border-radius:50%;background:transparent;border:1px solid #d9d5ca}
+.snode .ind i.on.r{background:var(--wood);border-color:var(--wood)}
+.snode .ind i.on.v{background:var(--ink);border-color:var(--ink)}
+.snode .ind i.on.c{background:var(--accent);border-color:var(--accent)}
+.snode[aria-selected="true"] .th{outline-color:var(--wood)}
+.snode[aria-selected="true"] .th img{opacity:1;filter:none}
+.snode[aria-selected="true"] .th .n{background:var(--wood)}
+.snode[aria-selected="true"]::after{content:"";position:absolute;left:calc(50% - 7px);bottom:-1px;width:14px;height:14px;background:#fff;transform:rotate(45deg);border-top:1px solid #cfcabd;border-left:1px solid #cfcabd;margin-bottom:-7px;z-index:2}
+.fpanel{position:relative;background:#fff;border-top:1px solid #cfcabd;padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:clamp(20px,3vw,44px);min-height:280px}
+.fpanel .fimg{aspect-ratio:4/3;overflow:hidden;background:var(--paper2);align-self:start}
+.fpanel .fimg img{width:100%;height:100%;object-fit:cover}
+.fbody{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px clamp(16px,3vw,40px);align-content:start}
+.fbody .ftitle{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.fpanel .en.num{font-size:clamp(36px,4.4vw,56px);line-height:1;color:var(--wood)}
+.fpanel h3{font-size:clamp(20px,2.2vw,26px);font-weight:500;color:var(--ink);line-height:1.5}
+.fpanel h3 small{font:400 12px var(--sans);color:var(--sub);margin-left:10px}
+.lbl{display:block;font:300 12px var(--serif);letter-spacing:.2em;color:var(--sub);margin-bottom:10px}
+.fpanel ul{list-style:none;padding:0;display:grid;gap:10px;font-size:14px}
+.fpanel li{position:relative;padding-left:1.1em}
+.fpanel li::before{content:"";position:absolute;left:0;top:.85em;width:6px;height:1px;background:var(--ink)}
+.fwhy{border-left:3px solid var(--wood);padding-left:clamp(14px,2vw,24px)}
+.fwhy p{font-size:14px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips i{font-style:normal;font-size:12px;color:var(--wood);border:1px solid var(--wood);border-radius:999px;padding:0 12px;line-height:1.9}
+
+details{border-top:1px solid var(--line);padding:22px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:500;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:300 24px/1 var(--serif);color:var(--wood)}
+details[open] summary::after{content:"−"}
+details p{margin-top:12px;font-size:14px}
+
+.form{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(28px,6vw,90px)}
+form{display:grid;gap:26px}
+label{font-size:13px;display:block}
+.req{font-size:11px;color:var(--wood);margin-left:6px}
+input,select,textarea{width:100%;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:10px 0;font:inherit;font-size:16px;color:var(--ink);border-radius:0}
+textarea{height:110px;resize:vertical}
+#sent{display:none;padding:18px;background:#fff;border-left:3px solid var(--wood);font-size:14px}
+footer{background:var(--dark);color:#9b968b;padding:52px clamp(20px,6vw,80px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px}
+footer a{color:#d8d4ca}
+
+@media(max-width:860px){
+  nav a.l{display:none}
+  .fv,.why,.form{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modal{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);overflow:auto}
+  .m-stage{order:-1;grid-template-columns:1fr;grid-template-rows:auto auto;padding:0}
+  .m-view{aspect-ratio:4/3}
+  .m-dots{flex-direction:row;padding:4px 0}
+  .m-info{overflow:visible}
+  .m-cat{margin-top:20px}
+  .fv-photos{padding-bottom:22%}
+  .sit{grid-template-columns:1fr}
+  .why .ph{aspect-ratio:4/3}
+  .imp-simple{grid-template-columns:1fr}
+  .stepper{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;gap:10px;padding-bottom:6px}
+  .snode{flex:0 0 130px;scroll-snap-align:start}
+  .snode[aria-selected="true"]::after{bottom:5px}
+  .fpanel{grid-template-columns:1fr;min-height:0}
+  .fbody{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#top"><b>diff</b><small>PROPERTY PRODUCE</small></a>
+  <nav>
+    <a class="l" href="#situation">situation</a>
+    <a class="l" href="#why">why</a>
+    <a class="l" href="#works">works</a>
+    <a class="l" href="#impact">impact</a>
+    <a class="l" href="#flow">flow</a>
+    <a class="pill" href="#contact">無料相談</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- 1 FV -->
+<div class="fv">
+  <div>
+    <div class="k">PROPERTY PRODUCE</div>
+    <h1>建てる前に、<br>収益を設計する。</h1>
+    <p>trias を企画から運営まで自社で担ってきた diff が、その知見で、土地オーナー様の賃貸事業をプロデュースします。</p>
+    <a class="cta" href="#contact">まずは土地のご相談(無料)</a>
+  </div>
+  <div class="fv-photos">
+    <div class="ph a"><img src="img/itabashi-1.webp" alt="the trias 板橋本町 外観(夕景)"></div>
+    <div class="ph b"><img src="img/numabukuro-2.webp" alt="the trias 沼袋 外観"></div>
+  </div>
+</div>
+
+<!-- 2 状況 -->
+<section id="situation" class="paper pad">
+  <div class="wrap">
+    <h2 class="en">situation</h2><p class="jp">あなたの土地は、どの状況ですか</p>
+    <p class="sit-lead">どの状況でも、まずは無料でご相談ください。</p>
+    <div class="sit">
+      <article><span class="en">CASE A</span><h3>空き地・駐車場を活かしたい</h3><p>何を建てればよいか分からない段階から、用途と収益の見通しを一緒に考えます。</p></article>
+      <article><span class="en">CASE B</span><h3>古くなった賃貸を建替えたい</h3><p>空室や賃料の下落を踏まえ、建替え後の姿を、収益から逆算して企画します。</p></article>
+      <article><span class="en">CASE C</span><h3>今の賃貸の収益を上げたい</h3><p>募集や管理の見直しで、賃料や稼働を高める余地がないかを一緒に確かめます。</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 3 なぜ強いか -->
+<section id="why" class="pad">
+  <div class="wrap">
+    <h2 class="en">why diff</h2><p class="jp">なぜ、diffか</p>
+    <div class="why">
+      <div class="ph"><img src="img/togoshiginza-2.webp" alt="the trias 戸越銀座 外観"></div>
+      <ol>
+        <li><span class="en">01</span><h3>自社で建て、自社で運営している</h3><p>trias の企画・開発・運営で培った実感を、そのままご提案に生かします。</p></li>
+        <li><span class="en">02</span><h3>企画から管理まで、窓口は一社</h3><p>収支の企画、設計、リーシング、管理を一貫して担当。施工のみ、信頼できる提携の施工会社と連携します。</p></li>
+        <li><span class="en">03</span><h3>建てた後も、攻めの管理</h3><p>満室経営に加え、賃料アップの提案やスピード対応で、オーナー様の課題を解決します。</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 4 事例 -->
+<section id="works" class="paper pad">
+  <div class="wrap">
+    <h2 class="en">works</h2><p class="jp">手がけてきた物件</p>
+    <div class="tiles" id="tiles"></div>
+    <p class="note">写真をクリックすると、物件の写真と紹介をご覧いただけます。</p>
+  </div>
+</section>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="m-name">
+  <button class="m-x" type="button" data-close aria-label="閉じる">×</button>
+  <div class="m-info">
+    <div class="m-no en" id="m-no"></div>
+    <div class="m-cat en" id="m-cat">RENTAL APARTMENT</div>
+    <div class="m-slash" aria-hidden="true"></div>
+    <h3 class="m-name" id="m-name"></h3>
+    <div class="m-year en" id="m-year"></div>
+    <div class="m-tabs" role="tablist">
+      <button type="button" role="tab" id="t-concept" aria-selected="true" aria-controls="p-concept" class="en">CONCEPT</button>
+      <button type="button" role="tab" id="t-outline" aria-selected="false" aria-controls="p-outline" class="en">OUTLINE</button>
+    </div>
+    <div class="m-panel" id="p-concept" role="tabpanel" aria-labelledby="t-concept"><p id="m-desc"></p></div>
+    <div class="m-panel" id="p-outline" role="tabpanel" aria-labelledby="t-outline" hidden><dl id="m-dl"></dl></div>
+  </div>
+  <div class="m-stage">
+    <div class="m-view" id="m-view">
+      <img id="m-img" alt="">
+      <button class="m-arrow prev" type="button" aria-label="前の写真">‹</button>
+      <button class="m-arrow next" type="button" aria-label="次の写真">›</button>
+    </div>
+    <div class="m-dots" id="m-dots"></div>
+  </div>
+</div>
+
+<!-- 4.5 数字 -->
+<section id="impact" class="impact pad">
+  <div class="wrap">
+    <h2 class="en">impact</h2><p class="jp">お任せいただくと、手残りがこう変わります</p>
+    <div class="imp-simple">
+      <div class="imp-left">
+        <span class="lab">年間の手残りの差(例)</span>
+        <div class="big" id="i-delta"></div>
+        <div class="cmp" id="i-cmp"></div>
+        <p class="cond" id="i-cond"></p>
+      </div>
+      <div class="imp-right">
+        <div class="tbl-wrap"><table class="tree" id="i-tree"></table></div>
+        <p class="note">※ モデルケースによる試算の例です。実際の収益を保証するものではありません。税金は含みません(税引前)。</p>
+        <a class="cta" href="#contact">自分の土地の場合を相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 進め方 -->
+<section id="flow" class="paper pad">
+  <div class="wrap">
+    <h2 class="en">flow</h2><p class="jp">収益が上がる、7つの工程</p>
+    <p class="flow-lead">収益は、建ててからではなく、建てる前から決まります。各工程で何をして、なぜ収益が上がるのかをお見せします。</p>
+        <div class="legend"><span>この工程が効くのは</span><i class="dot r"></i>賃料<i class="dot v"></i>空室<i class="dot c"></i>コスト</div>
+    <div class="stepper" id="stepper" role="tablist" aria-label="工程"></div>
+    <div class="fpanel" id="fpanel" role="tabpanel" aria-live="polite"></div>
+    <a class="cta dk" href="#contact">ご相談の流れを聞いてみる</a>
+  </div>
+</section>
+
+<!-- 7 FAQ -->
+<section id="faq" class="paper pad">
+  <div class="wrap" style="max-width:800px">
+    <h2 class="en">faq</h2><p class="jp">よくあるご質問</p>
+    <details><summary>施工もお願いできますか?</summary><p>施工は提携の施工会社と連携して進めます。ご希望の会社がある場合もご相談ください。</p></details>
+    <details><summary>相談だけでも可能ですか?</summary><p>はい。土地の状況をお聞きするところから、無料で承ります。</p></details>
+    <details><summary>どんな物件が対象ですか?</summary><p>賃貸マンション・アパートが中心です。都心の小〜中規模の土地を得意としています。</p></details>
+    <details><summary>費用はどのようにかかりますか?</summary><p>プロデュースの範囲に応じて、ご相談のうえでご提案します。</p></details>
+  </div>
+</section>
+
+<!-- 8 フォーム -->
+<section id="contact" class="pad">
+  <div class="wrap form">
+    <div>
+      <h2 class="en">contact</h2><p class="jp" style="margin-bottom:20px">土地のご相談(無料)</p>
+      <p style="font-size:15px">土地の所在地と、ご希望をお知らせください。担当者よりご連絡します。</p>
+    </div>
+    <form id="f">
+      <div><label for="name">お名前<span class="req">必須</span></label><input id="name" required autocomplete="name"></div>
+      <div><label for="mail">メールアドレス<span class="req">必須</span></label><input id="mail" type="email" required autocomplete="email"></div>
+      <div><label for="tel">電話番号</label><input id="tel" type="tel" autocomplete="tel"></div>
+      <div><label for="kind">ご相談者の区分<span class="req">必須</span></label>
+        <select id="kind" required><option>土地オーナー(地主)</option><option>投資家</option><option>その他</option></select></div>
+      <div><label for="land">土地の所在地・概要</label><input id="land"></div>
+      <div><label for="msg">ご相談内容</label><textarea id="msg"></textarea></div>
+      <div><button class="cta" type="submit">送信する</button></div>
+      <p id="sent">デザイン確認用のため、送信はされません。</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><span>株式会社diff</span><a href="https://diff.co.jp/">diff.co.jp</a><span>© diff</span></footer>
+
+<script>
+// ===== 数字のカセット(ここを差し替えるだけで、表示が変わります)=====
+// common: 共通の前提 / general: 一般的な運営 / diff: diffの場合(賃料は一般の賃料に rentUp% を上乗せ)
+var MODEL={
+ common:{units:8,area:25,costPerSqm:700000,loanRatio:0.8,rate:0.015,years:35},
+ general:{rent:5000,occ:92,opex:22},
+ diff:{rentUp:8,occ:97,opex:21}
+};
+(function(){
+ var $=function(id){return document.getElementById(id)};
+ var f0=function(n){return Math.round(n).toLocaleString('ja-JP')};
+ var man=function(y){return Math.round(y/10000)};
+ var sg=function(n){return (n>0?'+':n<0?'−':'')+f0(Math.abs(n))};
+ function annuity(loan,rate,years){var r=rate/12,n=years*12;var pm=r===0?loan/n:loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);return pm*12}
+ function calc(m,sc){
+  var c=m.common,d=sc==='diff';
+  var rent=d?m.general.rent*(1+m.diff.rentUp/100):m.general.rent;
+  var occ=(d?m.diff.occ:m.general.occ)/100,opr=(d?m.diff.opex:m.general.opex)/100;
+  var gpi=c.units*c.area*rent*12,vac=gpi*(1-occ),egi=gpi-vac,opex=egi*opr,noi=egi-opex;
+  var cost=c.units*c.area*c.costPerSqm,loan=cost*c.loanRatio,ads=annuity(loan,c.rate,c.years);
+  return {gpi:gpi,vac:vac,opex:opex,ads:ads,btcf:noi-ads,cost:cost,loan:loan};
+ }
+ var g=calc(MODEL,'general'),d=calc(MODEL,'diff'),c=MODEL.common;
+ var gb=man(g.btcf),db=man(d.btcf),pc=gb>0?Math.round((db/gb-1)*100):null;
+ $('i-delta').innerHTML=sg(db-gb)+'<small>万円 / 年</small>';
+ var mx=Math.max(gb,db);
+ $('i-cmp').innerHTML=
+  '<div class="row"><span>一般的な運営</span><i style="width:'+Math.max(8,Math.round(gb/mx*100))+'%"><b>'+f0(gb)+'万円</b></i></div>'+
+  '<div class="row d"><span>diffの場合</span><i style="width:'+Math.max(8,Math.round(db/mx*100))+'%"><b>'+f0(db)+'万円'+(pc!==null?'(+'+pc+'%)':'')+'</b></i></div>';
+ $('i-cond').textContent='例:'+c.units+'戸・1戸'+c.area+'㎡/総事業費'+f0(man(d.cost))+'万円(借入'+Math.round(c.loanRatio*100)+'%・金利'+(c.rate*100).toFixed(1)+'%・'+c.years+'年)/入居率 '+MODEL.general.occ+'%→'+MODEL.diff.occ+'%・賃料 +'+MODEL.diff.rentUp+'%';
+ var rows=[['満室時の賃料収入','gpi','r',1,''],['空室による損失','vac','v',-1,''],['運営費(管理・修繕など)','opex','c',-1,''],['借入の返済','ads','',-1,''],['年間の手残り(税引前)','btcf','',1,'res']];
+ var h='<tr><th></th><th>一般的な運営</th><th>diff</th><th>差</th></tr>';
+ rows.forEach(function(r){
+  var gv=r[3]*man(g[r[1]]),dv=r[3]*man(d[r[1]]),df=dv-gv;
+  var dot=r[2]?'<i class="dot '+r[2]+'"></i>':'';
+  h+='<tr class="'+(r[2]?'lv ':'')+r[4]+'"><td>'+dot+r[0]+'</td><td>'+sg(gv).replace('+','')+'</td><td>'+sg(dv).replace('+','')+'</td><td class="'+(df>0?'pos':'')+'">'+(df===0?'—':sg(df))+'</td></tr>';
+ });
+ $('i-tree').innerHTML=h;
+})();
+var IMGSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.webp'};
+
+// ===== フロー(工程ごとの「やること」と「収益が上がる理由」)=====
+var F=[
+ {t:'ヒアリング・土地診断',img:'machiya-3',do:['土地の条件(形状・法規制・周辺環境)とご希望、資金、ご家族の状況を伺う','周辺の賃貸需要・賃料相場・競合物件を調べる'],why:'「建てられる」ではなく「選ばれて収益が出る」用途と規模を最初に見極めます。建てた後の空室や賃料下落のリスクを、最初に減らせます。',l:{v:1}},
+ {t:'ペルソナ・コンセプト設計',img:'flow-persona',do:['どんな人に住んでほしいか(ペルソナ)を具体的に決める','その人に選ばれる建物のコンセプトと、賃料の方針を立てる'],why:'ターゲットが明確だと、設備や仕様に無駄がなくなり、「この建物だから借りたい」という理由が生まれます。相場より高い賃料でも決まりやすくなります。',l:{r:1,v:1}},
+ {t:'収支・資金計画',img:'flow-plan',do:['賃料・稼働・費用から収支をシミュレーションし、利回りを確かめる','資金計画や税務の観点も含めて、投資額の上限を決める'],why:'建てる前に数字で判断できます。無理のない投資額に収めることで、建てた後の収支が崩れるリスクを防ぎます。',l:{c:1}},
+ {t:'設計・デザイン',img:'flow-design',do:['ペルソナに合わせて、間取り・設備・外観を設計する','お金をかける所と抑える所を決め、長く古びないデザインにする'],why:'競合と違いが出るため、賃料を下げずに入居が決まります。長く古びないので、将来の賃料の下落も抑えられます。',l:{r:1,v:1}},
+ {t:'施工',sub:'提携の施工会社と連携',img:'flow-build',do:['提携の施工会社から見積を取り、内容を比べて選ぶ','設計の意図が守られているか、工事中に確認する'],why:'工事費を適正に抑えられます。設計どおりに仕上がるので、仕様のズレで賃料を下げることがありません。',l:{r:1,c:1}},
+ {t:'リーシング',img:'machiya-4',do:['竣工前から募集を始め、仲介会社へコンセプトと魅力を伝える','写真・募集資料を整え、賃料を設定して入居者を決める'],why:'竣工と同時に入居が始まるので、収入がゼロの期間を短くできます。魅力が伝わるため、賃料を下げずに決まります。',l:{r:1,v:1}},
+ {t:'運営管理',sub:'プロパティエージェント',img:'flow-manage',do:['入居者の要望やトラブルに、すぐ対応する','更新・退去のたびに募集と賃料を見直し、修繕を計画的に行う'],why:'「守りの管理」から「攻めの管理」へ。満室を保ちながら、賃料アップを提案します。計画的な修繕で、建物の価値も保てます。',l:{r:1,v:1,c:1}}
+];
+(function(){
+ var st=document.getElementById('stepper'),pn=document.getElementById('fpanel');
+ var names={r:'賃料を上げる',v:'空室を減らす',c:'コストを適正にする'};
+ st.innerHTML=F.map(function(f,i){
+  var n=String(i+1).padStart(2,'0');
+  var ind=['r','v','c'].map(function(k){return '<i class="'+k+(f.l[k]?' on':'')+'"></i>'}).join('');
+  return '<button type="button" class="snode" role="tab" id="s'+i+'" aria-controls="fpanel" data-i="'+i+'" aria-selected="'+(i===0)+'"><span class="th"><span class="n">'+n+'</span><img src="'+IMGSRC(f.img)+'" alt="" loading="lazy"></span><span class="t">'+f.t+(f.sub?'<small>'+f.sub+'</small>':'')+'</span><span class="ind" aria-hidden="true">'+ind+'</span></button>';
+ }).join('');
+ function show(i){
+  var f=F[i];
+  [].forEach.call(st.children,function(b,j){b.setAttribute('aria-selected',j===i)});
+  var chips=['r','v','c'].filter(function(k){return f.l[k]}).map(function(k){return '<i>'+names[k]+'</i>'}).join('');
+  pn.setAttribute('aria-labelledby','s'+i);
+  pn.innerHTML='<div class="fimg"><img src="'+IMGSRC(f.img)+'" alt=""></div>'+
+   '<div class="fbody"><div class="ftitle"><span class="en num">'+String(i+1).padStart(2,'0')+'</span><h3>'+f.t+(f.sub?'<small>'+f.sub+'</small>':'')+'</h3></div>'+
+   '<div><span class="lbl">やること</span><ul>'+f.do.map(function(d){return '<li>'+d+'</li>'}).join('')+'</ul></div>'+
+   '<div class="fwhy"><span class="lbl">なぜ収益が上がるのか</span><p>'+f.why+'</p><div class="chips">'+chips+'</div></div></div>';
+ }
+ st.addEventListener('click',function(e){var b=e.target.closest('.snode');if(b)show(+b.dataset.i)});
+ st.addEventListener('keydown',function(e){
+  var cur=+document.activeElement.dataset.i;if(isNaN(cur))return;
+  var nx=e.key==='ArrowRight'?cur+1:e.key==='ArrowLeft'?cur-1:null;
+  if(nx===null||nx<0||nx>=F.length)return;e.preventDefault();show(nx);st.children[nx].focus();
+ });
+ show(0);
+})();
+// 物件名はフォルダ名から。概要(o: [[項目,内容]...])と竣工年(y)は、あれば表示される
+var W=[
+ {t:'the trias 町屋',c:'RENTAL APARTMENT',d:'タイルと丸みを帯びた外観、屋上のテラスを備えた建物。',p:['machiya-1','machiya-2','machiya-3','machiya-4','machiya-5']},
+ {t:'the trias 板橋本町',c:'RENTAL APARTMENT',d:'凹凸のある外壁が陰影をつくる外観。夕景には窓の明かりが映えます。',p:['itabashi-1','itabashi-2','itabashi-3','itabashi-4']},
+ {t:'the trias 洗足',c:'RENTAL APARTMENT',d:'角地に建つコンクリート調の外観。1階の大きなガラス面が通りに開きます。',p:['senzoku-1','senzoku-2']},
+ {t:'the trias 渋谷本町',c:'RENTAL APARTMENT',d:'黒い外壁に白いパネルを縦に通した外観。',p:['shibuyahonmachi-1','shibuyahonmachi-2','shibuyahonmachi-3','shibuyahonmachi-4']},
+ {t:'渋谷ホテル',c:'HOTEL',d:'石張りの壁と間接照明で仕立てたエントランスと客室。',p:['shibuyahotel-1','shibuyahotel-2','shibuyahotel-3','shibuyahotel-4']},
+ {t:'the trias 沼袋',c:'RENTAL APARTMENT',d:'石張りを足元にあしらった外観と、明るい室内。',p:['numabukuro-1','numabukuro-2','numabukuro-3','numabukuro-4']},
+ {t:'the trias 戸越銀座',c:'RENTAL APARTMENT',d:'植栽と間接照明で迎えるアプローチ。都心の細長い敷地に建つ建物。',p:['togoshiginza-1','togoshiginza-2','togoshiginza-3','togoshiginza-4']}
+];
+var tiles=document.getElementById('tiles'),H='';
+for(var n=0;n<8;n++){
+ if(W[n]){H+='<button class="tile" type="button" data-n="'+n+'"><img src="'+IMGSRC(W[n].p[0])+'" alt="'+W[n].t+'" loading="lazy"><span>'+W[n].t+'</span></button>'}
+ else{H+='<a class="tile empty" href="#contact">その他の事例は、ご相談の際にご紹介します →</a>'}
+}
+tiles.innerHTML=H;
+
+var md=document.getElementById('modal'),view=document.getElementById('m-view'),mi=document.getElementById('m-img'),dots=document.getElementById('m-dots');
+var last,cur=null,idx=0,timer=null;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(i){
+ var P=W[cur].p;idx=(i+P.length)%P.length;
+ mi.classList.add('fade');
+ setTimeout(function(){mi.src=IMGSRC(P[idx]);mi.alt=W[cur].t+' 写真 '+(idx+1)+'/'+P.length;mi.classList.remove('fade')},160);
+ [].forEach.call(dots.children,function(d,j){if(j===idx)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});
+}
+function play(){stop();if(reduce)return;timer=setInterval(function(){show(idx+1)},4000)}
+function stop(){if(timer){clearInterval(timer);timer=null}}
+function tab(name){
+ ['concept','outline'].forEach(function(t){
+  document.getElementById('t-'+t).setAttribute('aria-selected',t===name);
+  document.getElementById('p-'+t).hidden=t!==name});
+}
+function openM(n){
+ last=document.activeElement;cur=n;var w=W[n];
+ document.getElementById('m-no').innerHTML='WORKS NO. <b style="font-size:1.5em">'+String(n+1).padStart(2,'0')+'</b>';
+ document.getElementById('m-name').textContent=w.t;document.getElementById('m-cat').textContent=w.c;
+ var yr=document.getElementById('m-year');yr.textContent=w.y||'';yr.hidden=!w.y;
+ var dl=document.getElementById('m-dl');dl.innerHTML=(w.o||[]).map(function(r){return '<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>'}).join('');
+ document.querySelector('.m-tabs').hidden=!(w.o&&w.o.length);
+ document.getElementById('m-desc').textContent=w.d;
+ dots.innerHTML=w.p.map(function(_,j){return '<button type="button" data-j="'+j+'" aria-label="写真 '+(j+1)+'"></button>'}).join('');
+ tab('concept');
+ mi.src=IMGSRC(w.p[0]);mi.alt=w.t;idx=0;
+ [].forEach.call(dots.children,function(d,j){if(j===0)d.setAttribute('aria-current','true')});
+ md.hidden=false;document.body.style.overflow='hidden';
+ md.querySelector('.m-x').focus();play();
+}
+function closeM(){stop();md.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+tiles.addEventListener('click',function(e){var b=e.target.closest('.tile[data-n]');if(b)openM(+b.dataset.n)});
+md.addEventListener('click',function(e){
+ var t=e.target;
+ if(t.closest('[data-close]'))return closeM();
+ if(t.closest('.m-arrow.prev')){show(idx-1);play();return}
+ if(t.closest('.m-arrow.next')){show(idx+1);play();return}
+ var d=t.closest('.m-dots button');if(d){show(+d.dataset.j);play();return}
+ var tb=t.closest('.m-tabs button');if(tb)tab(tb.id.replace('t-',''));
+});
+view.addEventListener('mouseenter',stop);view.addEventListener('mouseleave',function(){if(!md.hidden)play()});
+var sx=null;
+view.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;stop()},{passive:true});
+view.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>40)show(idx+(dx<0?1:-1));play()});
+document.addEventListener('keydown',function(e){
+ if(md.hidden)return;
+ if(e.key==='Escape')closeM();
+ else if(e.key==='ArrowRight'){show(idx+1);play()}
+ else if(e.key==='ArrowLeft'){show(idx-1);play()}
+});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('sent').style.display='block'});
+</script>
+</body>
+</html>
