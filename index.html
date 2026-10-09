@@ -52,7 +52,7 @@ h2.en{font-size:clamp(44px,7vw,76px);line-height:1.1}
 /* FV(ムービー) */
 .hero{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;background:#1d1c1a;overflow:hidden;color:#fff}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,18,.82) 0%,rgba(20,19,18,.35) 45%,rgba(20,19,18,.25) 100%)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,18,.88) 0%,rgba(20,19,18,.5) 50%,rgba(20,19,18,.38) 100%)}
 .hero-in{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:calc(72px + 40px) clamp(20px,6vw,80px) clamp(36px,5vw,64px)}
 .hero .k{font:300 14px var(--serif);letter-spacing:.24em;color:#e3c9aa}
 .hero h1{font-size:clamp(38px,6.4vw,84px);font-weight:400;line-height:1.35;color:#fff;margin:16px 0 20px;text-wrap:balance}
@@ -79,14 +79,34 @@ header.onhero .pill:hover{background:var(--wood);color:#fff}
 .sit-lead{font-size:clamp(18px,2.2vw,24px);color:var(--ink);line-height:1.8;margin-bottom:clamp(28px,4vw,48px);max-width:30em}
 
 /* 強み */
-.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:center}
-.why .ph{aspect-ratio:4/5}
-.why ol{list-style:none;padding:0}
-.why li{padding:24px 0;border-top:1px solid var(--line)}
-.why li:last-child{border-bottom:1px solid var(--line)}
-.why li .en{font-size:13px;letter-spacing:.2em;color:var(--wood)}
-.why li h3{font-size:20px;font-weight:500;color:var(--ink);margin:4px 0 6px;line-height:1.5}
-.why li p{font-size:14px}
+/* なぜ強いか(2本柱) */
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.pillar{background:var(--paper);padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;gap:20px}
+.pn{font-size:13px;letter-spacing:.2em;color:var(--wood)}
+.pillar h3{font-size:clamp(24px,3vw,34px);font-weight:500;color:var(--ink);line-height:1.45}
+.pillar h3 b{font:300 1.35em var(--serif);color:var(--wood)}
+.pbig{font:300 clamp(64px,8vw,104px)/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.pbig span{color:var(--wood)}
+.pbig small{font:400 13px var(--sans);color:var(--sub);margin-left:10px}
+.plead{font-size:15px;color:var(--ink)}
+.reasons{list-style:none;padding:0;display:grid;gap:14px;counter-reset:r}
+.reasons li{position:relative;padding-left:2em;font-size:14px}
+.reasons li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:-2px;font:300 18px var(--serif);color:var(--wood)}
+.reasons li b{display:block;font-weight:500;color:var(--ink);font-size:15px}
+.pcases{list-style:none;padding:0;display:grid;gap:2px;font-size:14px}
+.pcases li{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:8px 0}
+.pcases b{font:300 20px var(--serif);color:var(--wood)}
+.ex{font-size:10px;letter-spacing:.14em;color:var(--sub);border:1px solid var(--accent);padding:0 6px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.logos{display:flex;flex-wrap:wrap;gap:12px}
+.lg{background:#fff;border:1px solid var(--line);padding:14px 18px;min-width:170px;display:flex;flex-direction:column;gap:2px;justify-content:center}
+.lg img{height:52px;width:auto;object-fit:contain;margin-bottom:4px}
+.lg .t{font:300 16px var(--serif);color:var(--ink);letter-spacing:.04em}
+.lg .y{font:300 12px var(--serif);color:var(--sub)}
+.lg .s{font-size:11px;color:var(--wood);letter-spacing:.14em}
+.awcases{display:grid;gap:10px}
+.awcase{background:#fff;padding:12px 16px;border-left:3px solid var(--wood);font-size:13px;color:var(--body)}
+.awcase b{display:block;font:300 19px var(--serif);color:var(--ink)}
+.awcase em{font-style:normal;color:var(--wood);font-size:12px;letter-spacing:.08em}
 
 /* 受賞 */
 .aw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
@@ -166,6 +186,20 @@ table.tree{width:100%;min-width:420px;border-collapse:collapse;font-size:13px}
 .impact .note{color:#9b968b;margin-top:20px}
 .impact .cta{background:#fff;color:var(--dark)}.impact .cta:hover{background:var(--wood);color:#fff}
 
+/* 数字: 個別事例 */
+.imp-left .subl{font-size:13px;color:#c9c5ba;margin-top:4px}
+.imp-left .lab2{display:block;margin-top:30px}
+.imp-simple+.cs-wrap{margin-top:clamp(40px,5vw,72px)}
+.cs-wrap h3.sub{font-size:15px;font-weight:500;color:#fff;letter-spacing:.06em}
+.cs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:14px}
+.cs{border-top:1px solid #55524c;padding-top:16px;color:#d8d4ca}
+.cs h4{font-size:15px;font-weight:500;color:#fff}
+.cs .ex{color:#a8a398;border-color:#6b665e}
+.cs .csr{font:300 14px var(--serif);color:#c9c5ba;margin-top:8px}
+.cs .pc{font:300 clamp(34px,4vw,46px)/1.1 var(--serif);color:#fff;margin-top:6px}
+.cs .an{font-size:13px;color:#e6e2d8;margin-top:6px}
+.cs .an b{font:300 22px var(--serif);color:#f0d9bd}
+
 /* フロー */
 .flow-lead{font-size:clamp(17px,2vw,22px);line-height:1.9;color:var(--ink);max-width:34em;margin-bottom:clamp(24px,3vw,36px)}
 .legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:13px;color:var(--body);margin-bottom:20px}
@@ -226,7 +260,7 @@ footer a{color:#d8d4ca}
 
 @media(max-width:860px){
   nav a.l{display:none}
-  .why,.form,.aw{grid-template-columns:1fr}
+  .pillars,.form,.aw,.cs-grid{grid-template-columns:1fr}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .modal{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);overflow:auto}
   .m-stage{order:-1;grid-template-columns:1fr;grid-template-rows:auto auto;padding:0}
@@ -236,7 +270,6 @@ footer a{color:#d8d4ca}
   .m-cat{margin-top:20px}
   .hero{min-height:88vh}
   .sit{grid-template-columns:1fr}
-  .why .ph{aspect-ratio:4/3}
   .imp-simple{grid-template-columns:1fr}
   .stepper{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;gap:10px;padding-bottom:6px}
   .snode{flex:0 0 130px;scroll-snap-align:start}
@@ -254,7 +287,6 @@ footer a{color:#d8d4ca}
   <nav>
     <a class="l" href="#situation">situation</a>
     <a class="l" href="#why">why</a>
-    <a class="l" href="#awards">awards</a>
     <a class="l" href="#works">works</a>
     <a class="l" href="#impact">impact</a>
     <a class="l" href="#flow">flow</a>
@@ -270,8 +302,7 @@ footer a{color:#d8d4ca}
   <div class="hero-in">
     <div class="k">PROPERTY PRODUCE</div>
     <h1>建てる前に、<br>収益を設計する。</h1>
-    <p>trias を企画から運営まで自社で担ってきた diff が、その知見で、土地オーナー様の賃貸事業をプロデュースします。</p>
-    <ul class="facts" id="facts"></ul>
+    
     <div class="hero-cta"><a class="cta" href="#contact">まずは土地のご相談(無料)</a><a class="scroll" href="#situation">SCROLL ↓</a></div>
   </div>
 </div>
@@ -293,24 +324,29 @@ footer a{color:#d8d4ca}
 <section id="why" class="pad">
   <div class="wrap">
     <h2 class="en">why diff</h2><p class="jp">なぜ、diffか</p>
-    <div class="why">
-      <div class="ph"><img src="img/togoshiginza-2.webp" alt="the trias 戸越銀座 外観"></div>
-      <ol>
-        <li><span class="en">01</span><h3>自社で建て、自社で運営している</h3><p>trias の企画・開発・運営で培った実感を、そのままご提案に生かします。</p></li>
-        <li><span class="en">02</span><h3>企画から管理まで、窓口は一社</h3><p>収支の企画、設計、リーシング、管理を一貫して担当。施工のみ、信頼できる提携の施工会社と連携します。</p></li>
-        <li><span class="en">03</span><h3>建てた後も、攻めの管理</h3><p>満室経営に加え、賃料アップの提案やスピード対応で、オーナー様の課題を解決します。</p></li>
-      </ol>
+    <div class="pillars">
+      <article class="pillar" id="p1">
+        <span class="pn en">01</span>
+        <h3 id="p1-h"></h3>
+        <div class="pbig" id="p1-big"></div>
+        <div><span class="lbl">理由</span>
+          <ol class="reasons">
+            <li><b>住む人を決めて設計する</b>相場より高くても、選ばれる理由ができます。</li>
+            <li><b>魅力が伝わる募集</b>写真とコンセプトで、賃料を下げずに決まります。</li>
+            <li><b>更新・退去のたびに見直す</b>攻めの管理で、賃料アップを提案します。</li>
+          </ol></div>
+        <div id="p1-cw" hidden><span class="lbl">事例</span><ul class="pcases" id="p1-cases"></ul>
+          <a class="more" href="#impact">くわしい数字を見る</a></div>
+      </article>
+      <article class="pillar" id="p2">
+        <span class="pn en">02</span>
+        <h3>アワードを取れるだけの<br>デザイン力</h3>
+        <p class="plead">住む人のペルソナを基に、長期的な視点でデザインを追求します。</p>
+        <div class="logos" id="p2-logos"></div>
+        <div id="p2-rw" hidden><span class="lbl">理由</span><ol class="reasons" id="p2-rl"></ol></div>
+        <div><span class="lbl">事例</span><div class="awcases" id="p2-cases"></div></div>
+      </article>
     </div>
-  </div>
-</section>
-
-<!-- 3.5 受賞 -->
-<section id="awards" class="paper pad">
-  <div class="wrap">
-    <h2 class="en">awards</h2><p class="jp">デザインで評価された、diffの物件</p>
-    <p class="lead">一緒に、アワードを取りに行きませんか。</p>
-    <div class="aw" id="aw"></div>
-    <p class="note" id="aw-note"></p>
   </div>
 </section>
 
@@ -351,11 +387,13 @@ footer a{color:#d8d4ca}
 <!-- 4.5 数字 -->
 <section id="impact" class="impact pad">
   <div class="wrap">
-    <h2 class="en">impact</h2><p class="jp" id="i-jp">お任せいただくと、手残りがこう変わります</p>
+    <h2 class="en">impact</h2><p class="jp" id="i-jp"></p>
     <div class="imp-simple">
       <div class="imp-left">
-        <span class="lab">年間の手残りの差(例)</span>
+        <span class="lab" id="i-lab"></span>
         <div class="big" id="i-delta"></div>
+        <p class="subl" id="i-sub"></p>
+        <span class="lab lab2">空室や費用も含めた、年間の手残り</span>
         <div class="cmp" id="i-cmp"></div>
         <p class="cond" id="i-cond"></p>
         <div class="rentup" id="i-rentup" hidden></div>
@@ -365,6 +403,10 @@ footer a{color:#d8d4ca}
         <p class="note">※ モデルケースによる試算の例です。実際の収益を保証するものではありません。税金は含みません(税引前)。</p>
         <a class="cta" href="#contact">自分の土地の場合を相談する</a>
       </div>
+    </div>
+    <div class="cs-wrap" id="cs-wrap" hidden>
+      <h3 class="sub">実際の事例(物件ごと)</h3>
+      <div class="cs-grid" id="i-cases"></div>
     </div>
   </div>
 </section>
@@ -426,7 +468,17 @@ var AWARDS=[
 ];
 var HERO={video:'hero',poster:'hero-poster'};
 // 賃料アップの実績(直近1〜3年・全体平均と個別事例)。データが空なら表示しない
-var RENT_UP={overall:null,cases:[]};  // 例: {overall:{pct:10,count:30,period:'直近1年'},cases:[{name:'the trias ○○',pct:12}]}
+// 賃料アップの実績(直近1年)。overall=全体平均、cases=個別事例。before/after は月額の平均賃料(円)。example:true は匿名のサンプル
+var RENT_UP={overall:null,cases:[
+ {name:'物件A',units:8,before:135000,after:149000,example:true},
+ {name:'物件B',units:12,before:118000,after:129000,example:true},
+ {name:'物件C',units:6,before:152000,after:170000,example:true}
+]};
+function rentCase(c){return {pct:(c.after-c.before)/c.before*100,annual:(c.after-c.before)*c.units*12}}
+// アワードのロゴ(正規のファイルが届いたら、パスを入れる。例: 'img/logo-gda.svg')
+var LOGOS={'German Design Award':null,'グッドデザイン賞':null};
+// 「アワードを取れるデザイン力」の理由(現場ヒアリング後に入れる。空なら表示しない)。例: [{t:'見出し',d:'説明'}]
+var DESIGN_REASONS=[];
 // インタビュー(設計・建築部門の声)。空なら章ごと表示しない
 var VOICES=[];
 // ===== 数字のカセット(ここを差し替えるだけで、表示が変わります)=====
@@ -452,7 +504,9 @@ var MODEL={
  }
  var g=calc(MODEL,'general'),d=calc(MODEL,'diff'),c=MODEL.common;
  var gb=man(g.btcf),db=man(d.btcf),pc=gb>0?Math.round((db/gb-1)*100):null;
- $('i-delta').innerHTML=sg(db-gb)+'<small>万円 / 年</small>';
+ $('i-lab').textContent='賃料が'+MODEL.diff.rentUp+'%上がると、年間で(満室ベース・例)';
+ $('i-delta').innerHTML='+'+f0(man(d.gpi-g.gpi))+'<small>万円 / 年</small>';
+ $('i-sub').textContent='例:'+c.units+'戸・1戸'+c.area+'㎡・賃料'+f0(MODEL.general.rent)+'円/㎡ → '+f0(Math.round(MODEL.general.rent*(1+MODEL.diff.rentUp/100)))+'円/㎡';
  var mx=Math.max(gb,db);
  $('i-cmp').innerHTML=
   '<div class="row"><span>一般的な運営</span><i style="width:'+Math.max(8,Math.round(gb/mx*100))+'%"><b>'+f0(gb)+'万円</b></i></div>'+
@@ -472,24 +526,33 @@ var VIDSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.mp4'};
 (function(){
  var $=function(id){return document.getElementById(id)};
  // --- FV動画(動きを減らす設定のときは、静止画のポスターだけ)
+ var f0=function(n){return Math.round(n).toLocaleString('ja-JP')};
  var v=$('hero-video'),reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
  v.poster=IMGSRC(HERO.poster);
  if(!reduce){v.src=VIDSRC(HERO.video);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
  else{v.removeAttribute('autoplay')}
  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce&&v.paused){var q=v.play();if(q&&q.catch)q.catch(function(){})}});
- // --- 一行の判断材料
- var f='<li><b>賃料 約+'+MODEL.diff.rentUp+'%</b>相場比(例)</li>';
- var by={};AWARDS.forEach(function(a){var k=a.award+' '+a.year;(by[k]=by[k]||{st:a.status,n:0}).n++});
- Object.keys(by).forEach(function(k){f+='<li><b>'+k+'</b>'+by[k].st+' '+by[k].n+'物件</li>'});
- $('facts').innerHTML=f;
- // --- 受賞カード
- $('aw').innerHTML=AWARDS.map(function(a){return '<article class="awc"><span class="aw-k">'+a.award+'</span><span class="aw-y">'+a.year+'</span><h3 class="aw-n">'+a.prop+'</h3><span class="aw-s">'+a.status+'</span>'+(a.note?'<p class="aw-t">'+a.note+'</p>':'')+'</article>'}).join('');
- $('aw-note').textContent='German Design Award の授賞式は、ドイツ・フランクフルトで行われます。';
- // --- 数字の章の見出しと、賃料アップの実績(データがあるときだけ)
- $('i-jp').textContent='お任せいただくと、賃料が約'+MODEL.diff.rentUp+'%上がり、手残りがこう変わります';
- if(RENT_UP.overall&&RENT_UP.overall.pct){var r=RENT_UP.overall,h='<b>約+'+r.pct+'%</b> '+(r.period||'')+(r.count?'・管理'+r.count+'件の平均':'')+'(相場比)';
-  if(RENT_UP.cases&&RENT_UP.cases.length)h+='<ul>'+RENT_UP.cases.map(function(c){return '<li>'+c.name+':+'+c.pct+'%</li>'}).join('')+'</ul>';
-  $('i-rentup').innerHTML=h;$('i-rentup').hidden=false}
+ // --- なぜ強いか ①賃料アップ
+ var ov=RENT_UP.overall,pct=(ov&&ov.pct)?ov.pct:MODEL.diff.rentUp;
+ $('p1-h').innerHTML='直近1年で、賃料が<br>平均<b>'+pct+'%</b>アップ';
+ $('p1-big').innerHTML='<span>+</span>'+pct+'%<small>相場比'+(ov&&ov.pct?'':'(例)')+'</small>';
+ var cs=RENT_UP.cases||[];
+ if(cs.length){$('p1-cw').hidden=false;
+  $('p1-cases').innerHTML=cs.slice(0,3).map(function(c){var r=rentCase(c);return '<li><span>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</span><b>+'+r.pct.toFixed(1)+'%</b></li>'}).join('')}
+ // --- なぜ強いか ②アワードを取れるデザイン力
+ var seen={},lg='';
+ AWARDS.forEach(function(a){if(seen[a.award])return;seen[a.award]=1;
+  var img=LOGOS[a.award];
+  lg+='<div class="lg">'+(img?'<img src="'+IMGSRC(img)+'" alt="'+a.award+'">':'<span class="t">'+a.award+'</span>')+'<span class="y">'+a.year+'</span><span class="s">'+a.status+'</span></div>'});
+ $('p2-logos').innerHTML=lg;
+ $('p2-cases').innerHTML=AWARDS.map(function(a){return '<div class="awcase"><b>'+a.prop+'</b><em>'+a.award+' '+a.year+'・'+a.status+'</em>'+(a.note?'<br><span>'+a.note+'</span>':'')+'</div>'}).join('');
+ if(DESIGN_REASONS.length){$('p2-rw').hidden=false;$('p2-rl').innerHTML=DESIGN_REASONS.map(function(r){return '<li><b>'+r.t+'</b>'+(r.d||'')+'</li>'}).join('')}
+ // --- 数字の章: 見出しと、賃料アップの実績
+ $('i-jp').textContent='賃料が'+MODEL.diff.rentUp+'%上がると、年間でこう変わります';
+ if(ov&&ov.pct){$('i-rentup').innerHTML='<b>約+'+ov.pct+'%</b> '+(ov.period||'')+(ov.count?'・管理'+ov.count+'件の平均':'')+'(相場比)';$('i-rentup').hidden=false}
+ if(cs.length){$('cs-wrap').hidden=false;
+  $('i-cases').innerHTML=cs.map(function(c){var r=rentCase(c);
+   return '<div class="cs"><h4>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</h4><div class="csr">'+c.units+'戸・月額平均 '+(c.before/10000).toFixed(1)+'万円 → '+(c.after/10000).toFixed(1)+'万円</div><div class="pc">+'+r.pct.toFixed(1)+'%</div><div class="an">年間 <b>+'+f0(Math.round(r.annual/10000))+'万円</b></div></div>'}).join('')}
  // --- インタビュー(あるときだけ章を作る)
  if(VOICES.length){var sec=document.createElement('section');sec.id='voices';sec.className='pad';
   sec.innerHTML='<div class="wrap"><h2 class="en">voices</h2><p class="jp">つくり手の声</p><div class="aw">'+VOICES.map(function(x){return '<article class="awc"><span class="aw-k">'+(x.role||'')+'</span><h3 class="aw-n">'+(x.name||'')+'</h3><p class="aw-t">'+(x.text||'')+'</p></article>'}).join('')+'</div></div>';
