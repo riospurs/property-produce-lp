@@ -49,14 +49,26 @@ h2.en{font-size:clamp(44px,7vw,76px);line-height:1.1}
 .cta:hover{background:var(--wood)}
 .cta::after{content:"→"}
 
-/* FV */
-.fv{padding:calc(72px + clamp(40px,6vw,88px)) clamp(20px,6vw,80px) clamp(70px,9vw,120px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;max-width:1280px;margin:0 auto}
-.fv .k{font:300 14px var(--serif);letter-spacing:.24em;color:var(--wood)}
-.fv h1{font-size:clamp(34px,4.8vw,62px);font-weight:400;line-height:1.45;color:var(--ink);margin:18px 0 26px}
-.fv p{font-size:15px;max-width:30em}
-.fv-photos{position:relative;padding-bottom:18%}
-.fv-photos .a{aspect-ratio:4/5}
-.fv-photos .b{position:absolute;width:52%;aspect-ratio:4/3;right:-4%;bottom:0;border:8px solid #fff}
+/* FV(ムービー) */
+.hero{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;background:#1d1c1a;overflow:hidden;color:#fff}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,19,18,.82) 0%,rgba(20,19,18,.35) 45%,rgba(20,19,18,.25) 100%)}
+.hero-in{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:calc(72px + 40px) clamp(20px,6vw,80px) clamp(36px,5vw,64px)}
+.hero .k{font:300 14px var(--serif);letter-spacing:.24em;color:#e3c9aa}
+.hero h1{font-size:clamp(38px,6.4vw,84px);font-weight:400;line-height:1.35;color:#fff;margin:16px 0 20px;text-wrap:balance}
+.hero-in>p{font-size:15px;max-width:32em;color:#e6e2d8}
+.facts{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px;font-size:13px;color:#e6e2d8}
+.facts li{border-left:2px solid var(--wood);padding-left:12px;line-height:1.6}
+.facts b{display:block;font:300 clamp(18px,2vw,24px) var(--serif);color:#fff}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:8px}
+.hero .cta{background:#fff;color:var(--dark);margin-top:28px}
+.hero .cta:hover{background:var(--wood);color:#fff}
+.scroll{margin-top:28px;font:300 12px var(--serif);letter-spacing:.2em;color:#e6e2d8}
+header.onhero{background:transparent;backdrop-filter:none}
+header.onhero .logo b{color:#fff}header.onhero .logo small{color:#d8d4ca}
+header.onhero nav a.l{color:#f0ede6}
+header.onhero .pill{background:#fff;color:var(--dark)}
+header.onhero .pill:hover{background:var(--wood);color:#fff}
 
 /* 状況 */
 .sit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
@@ -75,6 +87,18 @@ h2.en{font-size:clamp(44px,7vw,76px);line-height:1.1}
 .why li .en{font-size:13px;letter-spacing:.2em;color:var(--wood)}
 .why li h3{font-size:20px;font-weight:500;color:var(--ink);margin:4px 0 6px;line-height:1.5}
 .why li p{font-size:14px}
+
+/* 受賞 */
+.aw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.awc{background:#fff;padding:clamp(24px,3vw,36px);border-top:2px solid var(--wood);display:flex;flex-direction:column;gap:6px}
+.awc .aw-k{font:300 13px var(--serif);letter-spacing:.14em;color:var(--wood)}
+.awc .aw-n{font:300 clamp(22px,2.6vw,30px)/1.3 var(--serif);color:var(--ink);margin:6px 0 2px}
+.awc .aw-y{font:300 14px var(--serif);color:var(--sub)}
+.awc .aw-s{align-self:flex-start;margin-top:12px;background:var(--dark);color:#fff;font-size:12px;letter-spacing:.14em;padding:2px 14px;border-radius:999px}
+.awc .aw-t{font-size:13px;color:var(--body);margin-top:10px}
+.rentup{margin-top:16px;border-top:1px solid #46433e;padding-top:14px;font-size:13px;color:#d8d4ca;line-height:1.9}
+.rentup b{font:300 20px var(--serif);color:#fff}
+.rentup ul{list-style:none;padding:0;margin-top:6px;display:grid;gap:4px}
 
 /* 事例 */
 .tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px)}
@@ -202,7 +226,7 @@ footer a{color:#d8d4ca}
 
 @media(max-width:860px){
   nav a.l{display:none}
-  .fv,.why,.form{grid-template-columns:1fr}
+  .why,.form,.aw{grid-template-columns:1fr}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .modal{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);overflow:auto}
   .m-stage{order:-1;grid-template-columns:1fr;grid-template-rows:auto auto;padding:0}
@@ -210,7 +234,7 @@ footer a{color:#d8d4ca}
   .m-dots{flex-direction:row;padding:4px 0}
   .m-info{overflow:visible}
   .m-cat{margin-top:20px}
-  .fv-photos{padding-bottom:22%}
+  .hero{min-height:88vh}
   .sit{grid-template-columns:1fr}
   .why .ph{aspect-ratio:4/3}
   .imp-simple{grid-template-columns:1fr}
@@ -225,11 +249,12 @@ footer a{color:#d8d4ca}
 </head>
 <body>
 
-<header>
+<header class="onhero" id="hdr">
   <a class="logo" href="#top"><b>diff</b><small>PROPERTY PRODUCE</small></a>
   <nav>
     <a class="l" href="#situation">situation</a>
     <a class="l" href="#why">why</a>
+    <a class="l" href="#awards">awards</a>
     <a class="l" href="#works">works</a>
     <a class="l" href="#impact">impact</a>
     <a class="l" href="#flow">flow</a>
@@ -239,16 +264,15 @@ footer a{color:#d8d4ca}
 
 <main id="top">
 <!-- 1 FV -->
-<div class="fv">
-  <div>
+<div class="hero" id="hero">
+  <video id="hero-video" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video>
+  <div class="hero-shade"></div>
+  <div class="hero-in">
     <div class="k">PROPERTY PRODUCE</div>
     <h1>建てる前に、<br>収益を設計する。</h1>
     <p>trias を企画から運営まで自社で担ってきた diff が、その知見で、土地オーナー様の賃貸事業をプロデュースします。</p>
-    <a class="cta" href="#contact">まずは土地のご相談(無料)</a>
-  </div>
-  <div class="fv-photos">
-    <div class="ph a"><img src="img/itabashi-1.webp" alt="the trias 板橋本町 外観(夕景)"></div>
-    <div class="ph b"><img src="img/numabukuro-2.webp" alt="the trias 沼袋 外観"></div>
+    <ul class="facts" id="facts"></ul>
+    <div class="hero-cta"><a class="cta" href="#contact">まずは土地のご相談(無料)</a><a class="scroll" href="#situation">SCROLL ↓</a></div>
   </div>
 </div>
 
@@ -280,8 +304,18 @@ footer a{color:#d8d4ca}
   </div>
 </section>
 
+<!-- 3.5 受賞 -->
+<section id="awards" class="paper pad">
+  <div class="wrap">
+    <h2 class="en">awards</h2><p class="jp">デザインで評価された、diffの物件</p>
+    <p class="lead">一緒に、アワードを取りに行きませんか。</p>
+    <div class="aw" id="aw"></div>
+    <p class="note" id="aw-note"></p>
+  </div>
+</section>
+
 <!-- 4 事例 -->
-<section id="works" class="paper pad">
+<section id="works" class="pad">
   <div class="wrap">
     <h2 class="en">works</h2><p class="jp">手がけてきた物件</p>
     <div class="tiles" id="tiles"></div>
@@ -317,13 +351,14 @@ footer a{color:#d8d4ca}
 <!-- 4.5 数字 -->
 <section id="impact" class="impact pad">
   <div class="wrap">
-    <h2 class="en">impact</h2><p class="jp">お任せいただくと、手残りがこう変わります</p>
+    <h2 class="en">impact</h2><p class="jp" id="i-jp">お任せいただくと、手残りがこう変わります</p>
     <div class="imp-simple">
       <div class="imp-left">
         <span class="lab">年間の手残りの差(例)</span>
         <div class="big" id="i-delta"></div>
         <div class="cmp" id="i-cmp"></div>
         <p class="cond" id="i-cond"></p>
+        <div class="rentup" id="i-rentup" hidden></div>
       </div>
       <div class="imp-right">
         <div class="tbl-wrap"><table class="tree" id="i-tree"></table></div>
@@ -382,12 +417,24 @@ footer a{color:#d8d4ca}
 <footer><span>株式会社diff</span><a href="https://diff.co.jp/">diff.co.jp</a><span>© diff</span></footer>
 
 <script>
+// ===== 受賞・動画・実績データのカセット(ここを差し替えるだけで、表示が変わります)=====
+// status は、正式発表後に「内定」→「受賞」へ書き換える
+var AWARDS=[
+ {prop:'the trias kashiwa',award:'German Design Award',year:2026,status:'受賞内定',note:'これで3つ目のアワード'},
+ {prop:'the trias mishuku',award:'German Design Award',year:2026,status:'受賞内定',note:'初のアワード'},
+ {prop:'the trias rokakoen',award:'グッドデザイン賞',year:2026,status:'受賞内定',note:''}
+];
+var HERO={video:'hero',poster:'hero-poster'};
+// 賃料アップの実績(直近1〜3年・全体平均と個別事例)。データが空なら表示しない
+var RENT_UP={overall:null,cases:[]};  // 例: {overall:{pct:10,count:30,period:'直近1年'},cases:[{name:'the trias ○○',pct:12}]}
+// インタビュー(設計・建築部門の声)。空なら章ごと表示しない
+var VOICES=[];
 // ===== 数字のカセット(ここを差し替えるだけで、表示が変わります)=====
 // common: 共通の前提 / general: 一般的な運営 / diff: diffの場合(賃料は一般の賃料に rentUp% を上乗せ)
 var MODEL={
  common:{units:8,area:25,costPerSqm:700000,loanRatio:0.8,rate:0.015,years:35},
  general:{rent:5000,occ:92,opex:22},
- diff:{rentUp:8,occ:97,opex:21}
+ diff:{rentUp:10,occ:97,opex:21}
 };
 (function(){
  var $=function(id){return document.getElementById(id)};
@@ -421,6 +468,37 @@ var MODEL={
  $('i-tree').innerHTML=h;
 })();
 var IMGSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.webp'};
+var VIDSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.mp4'};
+(function(){
+ var $=function(id){return document.getElementById(id)};
+ // --- FV動画(動きを減らす設定のときは、静止画のポスターだけ)
+ var v=$('hero-video'),reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ v.poster=IMGSRC(HERO.poster);
+ if(!reduce){v.src=VIDSRC(HERO.video);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
+ else{v.removeAttribute('autoplay')}
+ document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce&&v.paused){var q=v.play();if(q&&q.catch)q.catch(function(){})}});
+ // --- 一行の判断材料
+ var f='<li><b>賃料 約+'+MODEL.diff.rentUp+'%</b>相場比(例)</li>';
+ var by={};AWARDS.forEach(function(a){var k=a.award+' '+a.year;(by[k]=by[k]||{st:a.status,n:0}).n++});
+ Object.keys(by).forEach(function(k){f+='<li><b>'+k+'</b>'+by[k].st+' '+by[k].n+'物件</li>'});
+ $('facts').innerHTML=f;
+ // --- 受賞カード
+ $('aw').innerHTML=AWARDS.map(function(a){return '<article class="awc"><span class="aw-k">'+a.award+'</span><span class="aw-y">'+a.year+'</span><h3 class="aw-n">'+a.prop+'</h3><span class="aw-s">'+a.status+'</span>'+(a.note?'<p class="aw-t">'+a.note+'</p>':'')+'</article>'}).join('');
+ $('aw-note').textContent='German Design Award の授賞式は、ドイツ・フランクフルトで行われます。';
+ // --- 数字の章の見出しと、賃料アップの実績(データがあるときだけ)
+ $('i-jp').textContent='お任せいただくと、賃料が約'+MODEL.diff.rentUp+'%上がり、手残りがこう変わります';
+ if(RENT_UP.overall&&RENT_UP.overall.pct){var r=RENT_UP.overall,h='<b>約+'+r.pct+'%</b> '+(r.period||'')+(r.count?'・管理'+r.count+'件の平均':'')+'(相場比)';
+  if(RENT_UP.cases&&RENT_UP.cases.length)h+='<ul>'+RENT_UP.cases.map(function(c){return '<li>'+c.name+':+'+c.pct+'%</li>'}).join('')+'</ul>';
+  $('i-rentup').innerHTML=h;$('i-rentup').hidden=false}
+ // --- インタビュー(あるときだけ章を作る)
+ if(VOICES.length){var sec=document.createElement('section');sec.id='voices';sec.className='pad';
+  sec.innerHTML='<div class="wrap"><h2 class="en">voices</h2><p class="jp">つくり手の声</p><div class="aw">'+VOICES.map(function(x){return '<article class="awc"><span class="aw-k">'+(x.role||'')+'</span><h3 class="aw-n">'+(x.name||'')+'</h3><p class="aw-t">'+(x.text||'')+'</p></article>'}).join('')+'</div></div>';
+  var faq=$('faq');faq.parentNode.insertBefore(sec,faq)}
+ // --- ヘッダー: 動画の上では透過、スクロールで白
+ var hd=$('hdr'),hero=$('hero');
+ function hdr(){hd.classList.toggle('onhero',window.scrollY<hero.offsetHeight-90)}
+ window.addEventListener('scroll',hdr,{passive:true});hdr();
+})();
 
 // ===== フロー(工程ごとの「やること」と「収益が上がる理由」)=====
 var F=[
