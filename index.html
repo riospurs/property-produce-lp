@@ -79,34 +79,52 @@ header.onhero .pill:hover{background:var(--wood);color:#fff}
 .sit-lead{font-size:clamp(18px,2.2vw,24px);color:var(--ink);line-height:1.8;margin-bottom:clamp(28px,4vw,48px);max-width:30em}
 
 /* 強み */
-/* なぜ強いか(2本柱) */
-.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
-.pillar{background:var(--paper);padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;gap:20px}
+/* diffの強み(01と02は別の帯) */
+.pillar{display:flex;flex-direction:column;gap:clamp(28px,4vw,48px)}
+.pl-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.pl-t{display:flex;flex-direction:column;gap:18px}
 .pn{font-size:13px;letter-spacing:.2em;color:var(--wood)}
-.pillar h3{font-size:clamp(24px,3vw,34px);font-weight:500;color:var(--ink);line-height:1.45}
+.pillar h3{font-size:clamp(26px,3.4vw,40px);font-weight:500;color:var(--ink);line-height:1.45}
 .pillar h3 b{font:300 1.35em var(--serif);color:var(--wood)}
-.pbig{font:300 clamp(64px,8vw,104px)/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.pbig{font:300 clamp(72px,9vw,120px)/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
 .pbig span{color:var(--wood)}
 .pbig small{font:400 13px var(--sans);color:var(--sub);margin-left:10px}
-.plead{font-size:15px;color:var(--ink)}
-.reasons{list-style:none;padding:0;display:grid;gap:14px;counter-reset:r}
-.reasons li{position:relative;padding-left:2em;font-size:14px}
-.reasons li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:-2px;font:300 18px var(--serif);color:var(--wood)}
-.reasons li b{display:block;font-weight:500;color:var(--ink);font-size:15px}
-.pcases{list-style:none;padding:0;display:grid;gap:2px;font-size:14px}
-.pcases li{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:8px 0}
-.pcases b{font:300 20px var(--serif);color:var(--wood)}
+.plead{font-size:15px;color:var(--ink);max-width:28em}
+.reasons{list-style:none;padding:0;display:grid;gap:16px;counter-reset:r}
+.reasons li{position:relative;padding-left:2.2em;font-size:14px}
+.reasons li::before{counter-increment:r;content:counter(r);position:absolute;left:0;top:-3px;font:300 20px var(--serif);color:var(--wood)}
+.reasons li b{display:block;font-weight:500;color:var(--ink);font-size:16px}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px)}
+.pcard{display:flex;flex-direction:column;gap:10px}
+.pc-img{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--paper2)}
+.pc-img img{width:100%;height:100%;object-fit:cover}
+.dm{position:absolute;right:6px;bottom:6px;font:300 10px var(--serif);letter-spacing:.14em;color:#fff;background:rgba(0,0,0,.5);padding:1px 7px}
+.pc-b b{display:block;font:300 clamp(18px,2vw,22px) var(--serif);color:var(--ink)}
+.pc-b span{display:block;font-size:13px;color:var(--body)}
+.pc-b em{font-style:normal;font-size:12px;color:var(--wood);letter-spacing:.08em}
+.pc-b .pp{font:300 26px var(--serif);color:var(--wood);margin-top:2px}
 .ex{font-size:10px;letter-spacing:.14em;color:var(--sub);border:1px solid var(--accent);padding:0 6px;margin-left:8px;vertical-align:middle;white-space:nowrap}
-.logos{display:flex;flex-wrap:wrap;gap:12px}
-.lg{background:#fff;border:1px solid var(--line);padding:14px 18px;min-width:170px;display:flex;flex-direction:column;gap:2px;justify-content:center}
-.lg img{height:52px;width:auto;object-fit:contain;margin-bottom:4px}
+.logos{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,36px);align-items:flex-end;margin-top:6px}
+.lg{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.lg img{height:clamp(96px,11vw,128px);width:auto;max-width:100%;object-fit:contain}
 .lg .t{font:300 16px var(--serif);color:var(--ink);letter-spacing:.04em}
-.lg .y{font:300 12px var(--serif);color:var(--sub)}
-.lg .s{font-size:11px;color:var(--wood);letter-spacing:.14em}
-.awcases{display:grid;gap:10px}
-.awcase{background:#fff;padding:12px 16px;border-left:3px solid var(--wood);font-size:13px;color:var(--body)}
-.awcase b{display:block;font:300 19px var(--serif);color:var(--ink)}
-.awcase em{font-style:normal;color:var(--wood);font-size:12px;letter-spacing:.08em}
+.lg .s{font-size:12px;color:var(--wood);letter-spacing:.14em}
+.because{display:grid;gap:0}
+.bcard{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
+.bcard:last-child{border-bottom:1px solid var(--line)}
+.bi{width:56px;height:56px;border-radius:50%;border:1px solid var(--wood);display:flex;align-items:center;justify-content:center;color:var(--wood)}
+.bi svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.bcard b{display:block;font-size:16px;font-weight:500;color:var(--ink);line-height:1.5}
+.bcard p{font-size:14px;margin-top:2px}
+.bcard .tg{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.1em;color:var(--wood);border:1px solid var(--wood);border-radius:999px;padding:0 10px;line-height:1.8}
+.bars1{display:grid;gap:8px;margin-top:6px;max-width:420px}
+.bars1 .row{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:10px;align-items:center;font-size:12px;color:var(--sub)}
+.bars1 i{display:block;height:28px;background:var(--accent);position:relative}
+.bars1 .d i{background:var(--wood)}
+.bars1 i b{position:absolute;right:8px;top:50%;transform:translateY(-50%);font:300 14px var(--serif);color:#fff}
+.pc-img .bd{position:absolute;left:8px;bottom:8px;background:#fff;padding:7px 10px;display:flex;align-items:center;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+.pc-img .bd img{height:clamp(44px,5vw,60px);width:auto;object-fit:contain}
+.more{margin-top:20px}
 
 /* 受賞 */
 .aw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
@@ -193,6 +211,7 @@ table.tree{width:100%;min-width:420px;border-collapse:collapse;font-size:13px}
 .cs-wrap h3.sub{font-size:15px;font-weight:500;color:#fff;letter-spacing:.06em}
 .cs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:14px}
 .cs{border-top:1px solid #55524c;padding-top:16px;color:#d8d4ca}
+.cs .pc-img{margin-bottom:14px}
 .cs h4{font-size:15px;font-weight:500;color:#fff}
 .cs .ex{color:#a8a398;border-color:#6b665e}
 .cs .csr{font:300 14px var(--serif);color:#c9c5ba;margin-top:8px}
@@ -260,7 +279,8 @@ footer a{color:#d8d4ca}
 
 @media(max-width:860px){
   nav a.l{display:none}
-  .pillars,.form,.aw,.cs-grid{grid-template-columns:1fr}
+  .pl-head,.form,.aw,.cs-grid{grid-template-columns:1fr}
+  .pcards{grid-template-columns:1fr}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .modal{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);overflow:auto}
   .m-stage{order:-1;grid-template-columns:1fr;grid-template-rows:auto auto;padding:0}
@@ -286,7 +306,7 @@ footer a{color:#d8d4ca}
   <a class="logo" href="#top"><b>diff</b><small>PROPERTY PRODUCE</small></a>
   <nav>
     <a class="l" href="#situation">situation</a>
-    <a class="l" href="#why">why</a>
+    <a class="l" href="#why">strengths</a>
     <a class="l" href="#works">works</a>
     <a class="l" href="#impact">impact</a>
     <a class="l" href="#flow">flow</a>
@@ -320,33 +340,32 @@ footer a{color:#d8d4ca}
   </div>
 </section>
 
-<!-- 3 なぜ強いか -->
+<!-- 3 diffの強み -->
 <section id="why" class="pad">
   <div class="wrap">
-    <h2 class="en">why diff</h2><p class="jp">なぜ、diffか</p>
-    <div class="pillars">
-      <article class="pillar" id="p1">
-        <span class="pn en">01</span>
-        <h3 id="p1-h"></h3>
-        <div class="pbig" id="p1-big"></div>
-        <div><span class="lbl">理由</span>
-          <ol class="reasons">
-            <li><b>住む人を決めて設計する</b>相場より高くても、選ばれる理由ができます。</li>
-            <li><b>魅力が伝わる募集</b>写真とコンセプトで、賃料を下げずに決まります。</li>
-            <li><b>更新・退去のたびに見直す</b>攻めの管理で、賃料アップを提案します。</li>
-          </ol></div>
-        <div id="p1-cw" hidden><span class="lbl">事例</span><ul class="pcases" id="p1-cases"></ul>
-          <a class="more" href="#impact">くわしい数字を見る</a></div>
-      </article>
-      <article class="pillar" id="p2">
-        <span class="pn en">02</span>
-        <h3>アワードを取れるだけの<br>デザイン力</h3>
-        <p class="plead">住む人のペルソナを基に、長期的な視点でデザインを追求します。</p>
-        <div class="logos" id="p2-logos"></div>
-        <div id="p2-rw" hidden><span class="lbl">理由</span><ol class="reasons" id="p2-rl"></ol></div>
-        <div><span class="lbl">事例</span><div class="awcases" id="p2-cases"></div></div>
-      </article>
-    </div>
+    <h2 class="en">strengths</h2><p class="jp">diffの強み</p>
+    <article class="pillar" id="p1">
+      <div class="pl-head">
+        <div class="pl-t"><span class="pn en">01</span><h3 id="p1-h"></h3><div class="pbig" id="p1-big"></div><div class="bars1" id="p1-bars"></div></div>
+        <div class="pl-r"><div class="because" id="p1-b"></div></div>
+      </div>
+      <div id="p1-cw" hidden><span class="lbl">事例</span><div class="pcards" id="p1-cases"></div>
+        <a class="more" href="#impact">くわしい数字を見る</a></div>
+    </article>
+  </div>
+</section>
+
+<section id="why2" class="paper pad">
+  <div class="wrap">
+    <article class="pillar" id="p2">
+      <div class="pl-head">
+        <div class="pl-t"><span class="pn en">02</span><h3>アワードを取れるだけの<br>デザイン力</h3>
+          <p class="plead">住む人のペルソナを基に、長期的な視点でデザインを追求します。</p>
+          <div class="logos" id="p2-logos"></div></div>
+        <div class="pl-r" id="p2-rw" hidden><div class="because" id="p2-b"></div></div>
+      </div>
+      <div><span class="lbl">事例</span><div class="pcards" id="p2-cases"></div></div>
+    </article>
   </div>
 </section>
 
@@ -461,24 +480,44 @@ footer a{color:#d8d4ca}
 <script>
 // ===== 受賞・動画・実績データのカセット(ここを差し替えるだけで、表示が変わります)=====
 // status は、正式発表後に「内定」→「受賞」へ書き換える
+var DUMMY_IMG=true;  // true のあいだ、ダミー画像に小さく DUMMY と表示。実際の写真に替えたら false
 var AWARDS=[
- {prop:'the trias kashiwa',award:'German Design Award',year:2026,status:'受賞内定',note:'これで3つ目のアワード'},
- {prop:'the trias mishuku',award:'German Design Award',year:2026,status:'受賞内定',note:'初のアワード'},
- {prop:'the trias rokakoen',award:'グッドデザイン賞',year:2026,status:'受賞内定',note:''}
+ {prop:'the trias kashiwa',award:'German Design Award',year:2026,status:'受賞内定',note:'これで3つ目のアワード',img:'shibuyahonmachi-1'},
+ {prop:'the trias mishuku',award:'German Design Award',year:2026,status:'受賞内定',note:'初のアワード',img:'senzoku-1'},
+ {prop:'the trias rokakoen',award:'グッドデザイン賞',year:2026,status:'受賞内定',note:'',img:'togoshiginza-1'}
 ];
 var HERO={video:'hero',poster:'hero-poster'};
 // 賃料アップの実績(直近1〜3年・全体平均と個別事例)。データが空なら表示しない
 // 賃料アップの実績(直近1年)。overall=全体平均、cases=個別事例。before/after は月額の平均賃料(円)。example:true は匿名のサンプル
 var RENT_UP={overall:null,cases:[
- {name:'物件A',units:8,before:135000,after:149000,example:true},
- {name:'物件B',units:12,before:118000,after:129000,example:true},
- {name:'物件C',units:6,before:152000,after:170000,example:true}
+ {name:'物件A',units:8,before:135000,after:149000,example:true,img:'machiya-1'},
+ {name:'物件B',units:12,before:118000,after:129000,example:true,img:'itabashi-1'},
+ {name:'物件C',units:6,before:152000,after:170000,example:true,img:'numabukuro-1'}
 ]};
 function rentCase(c){return {pct:(c.after-c.before)/c.before*100,annual:(c.after-c.before)*c.units*12}}
 // アワードのロゴ(正規のファイルが届いたら、パスを入れる。例: 'img/logo-gda.svg')
-var LOGOS={'German Design Award':null,'グッドデザイン賞':null};
+var LOGOS={'German Design Award':'logo-gda','グッドデザイン賞':'logo-gmark'};
 // 「アワードを取れるデザイン力」の理由(現場ヒアリング後に入れる。空なら表示しない)。例: [{t:'見出し',d:'説明'}]
-var DESIGN_REASONS=[];
+// アイコン(線画)
+var ICONS={
+ person:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>',
+ camera:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2.5h5L16 7"/></svg>',
+ trend:'<svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg>',
+ building:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>',
+ light:'<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>'
+};
+// 01「賃料が上がる、なぜなら」(i=アイコン / tag=効く先)
+var UP_REASONS=[
+ {i:'person',t:'住む人を決めて設計する',d:'相場より高くても、選ばれる理由ができる',tag:'賃料'},
+ {i:'camera',t:'魅力が伝わる募集',d:'写真とコンセプトで、賃料を下げずに決まる',tag:'空室'},
+ {i:'trend',t:'更新・退去のたびに見直す',d:'攻めの管理で、賃料アップを提案する',tag:'賃料'}
+];
+// 02「アワードを取れるデザイン力、なぜなら」。仮案(現場ヒアリング後に差し替える)
+var DESIGN_REASONS=[
+ {i:'person',t:'住む人から逆算して設計する',d:'ペルソナを基に、間取り・設備・雰囲気まで決める'},
+ {i:'building',t:'外観から共用部まで、ひと続きでデザイン',d:'住戸だけでなく、エントランスや廊下まで一貫させる'},
+ {i:'light',t:'長く古びない素材と光を選ぶ',d:'長期的な視点で、素材・色・照明を決める'}
+];
 // インタビュー(設計・建築部門の声)。空なら章ごと表示しない
 var VOICES=[];
 // ===== 数字のカセット(ここを差し替えるだけで、表示が変わります)=====
@@ -532,27 +571,31 @@ var VIDSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.mp4'};
  if(!reduce){v.src=VIDSRC(HERO.video);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
  else{v.removeAttribute('autoplay')}
  document.addEventListener('visibilitychange',function(){if(!document.hidden&&!reduce&&v.paused){var q=v.play();if(q&&q.catch)q.catch(function(){})}});
- // --- なぜ強いか ①賃料アップ
+ // --- 強み 01: 賃料アップ
+ var imgf=function(k,badge){return '<figure class="pc-img"><img src="'+IMGSRC(k)+'" alt="" loading="lazy">'+(badge?'<span class="bd"><img src="'+IMGSRC(badge)+'" alt="受賞ロゴ"></span>':'')+(DUMMY_IMG?'<span class="dm">DUMMY</span>':'')+'</figure>'};
+ var bec=function(L){return L.map(function(r){return '<div class="bcard"><div class="bi">'+ICONS[r.i]+'</div><div><b>'+r.t+'</b><p>'+(r.d||'')+'</p>'+(r.tag?'<span class="tg">'+r.tag+'に効く</span>':'')+'</div></div>'}).join('')};
  var ov=RENT_UP.overall,pct=(ov&&ov.pct)?ov.pct:MODEL.diff.rentUp;
  $('p1-h').innerHTML='直近1年で、賃料が<br>平均<b>'+pct+'%</b>アップ';
  $('p1-big').innerHTML='<span>+</span>'+pct+'%<small>相場比'+(ov&&ov.pct?'':'(例)')+'</small>';
+ $('p1-bars').innerHTML='<div class="row"><span>相場</span><i style="width:'+Math.round(100/(100+pct)*100)+'%"><b>100</b></i></div><div class="row d"><span>diff</span><i style="width:100%"><b>'+(100+pct)+'</b></i></div>';
+ $('p1-b').innerHTML=bec(UP_REASONS);
  var cs=RENT_UP.cases||[];
  if(cs.length){$('p1-cw').hidden=false;
-  $('p1-cases').innerHTML=cs.slice(0,3).map(function(c){var r=rentCase(c);return '<li><span>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</span><b>+'+r.pct.toFixed(1)+'%</b></li>'}).join('')}
- // --- なぜ強いか ②アワードを取れるデザイン力
+  $('p1-cases').innerHTML=cs.slice(0,3).map(function(c){var r=rentCase(c);return '<div class="pcard">'+(c.img?imgf(c.img):'')+'<div class="pc-b"><b>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</b><span>'+c.units+'戸・月額平均 '+(c.before/10000).toFixed(1)+'万円 → '+(c.after/10000).toFixed(1)+'万円</span><div class="pp">+'+r.pct.toFixed(1)+'%</div></div></div>'}).join('')}
+ // --- 強み 02: アワードを取れるデザイン力
  var seen={},lg='';
  AWARDS.forEach(function(a){if(seen[a.award])return;seen[a.award]=1;
   var img=LOGOS[a.award];
-  lg+='<div class="lg">'+(img?'<img src="'+IMGSRC(img)+'" alt="'+a.award+'">':'<span class="t">'+a.award+'</span>')+'<span class="y">'+a.year+'</span><span class="s">'+a.status+'</span></div>'});
+  lg+='<div class="lg">'+(img?'<img src="'+IMGSRC(img)+'" alt="'+a.award+' '+a.year+'">':'<span class="t">'+a.award+' '+a.year+'</span>')+'<span class="s">'+a.status+'</span></div>'});
  $('p2-logos').innerHTML=lg;
- $('p2-cases').innerHTML=AWARDS.map(function(a){return '<div class="awcase"><b>'+a.prop+'</b><em>'+a.award+' '+a.year+'・'+a.status+'</em>'+(a.note?'<br><span>'+a.note+'</span>':'')+'</div>'}).join('');
- if(DESIGN_REASONS.length){$('p2-rw').hidden=false;$('p2-rl').innerHTML=DESIGN_REASONS.map(function(r){return '<li><b>'+r.t+'</b>'+(r.d||'')+'</li>'}).join('')}
+ $('p2-cases').innerHTML=AWARDS.map(function(a){return '<div class="pcard">'+(a.img?imgf(a.img,LOGOS[a.award]):'')+'<div class="pc-b"><b>'+a.prop+'</b><em>'+a.award+' '+a.year+'・'+a.status+'</em>'+(a.note?'<span>'+a.note+'</span>':'')+'</div></div>'}).join('');
+ if(DESIGN_REASONS.length){$('p2-rw').hidden=false;$('p2-b').innerHTML=bec(DESIGN_REASONS)}
  // --- 数字の章: 見出しと、賃料アップの実績
  $('i-jp').textContent='賃料が'+MODEL.diff.rentUp+'%上がると、年間でこう変わります';
  if(ov&&ov.pct){$('i-rentup').innerHTML='<b>約+'+ov.pct+'%</b> '+(ov.period||'')+(ov.count?'・管理'+ov.count+'件の平均':'')+'(相場比)';$('i-rentup').hidden=false}
  if(cs.length){$('cs-wrap').hidden=false;
   $('i-cases').innerHTML=cs.map(function(c){var r=rentCase(c);
-   return '<div class="cs"><h4>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</h4><div class="csr">'+c.units+'戸・月額平均 '+(c.before/10000).toFixed(1)+'万円 → '+(c.after/10000).toFixed(1)+'万円</div><div class="pc">+'+r.pct.toFixed(1)+'%</div><div class="an">年間 <b>+'+f0(Math.round(r.annual/10000))+'万円</b></div></div>'}).join('')}
+   return '<div class="cs">'+(c.img?imgf(c.img):'')+'<h4>'+c.name+(c.example?'<i class="ex">EXAMPLE</i>':'')+'</h4><div class="csr">'+c.units+'戸・月額平均 '+(c.before/10000).toFixed(1)+'万円 → '+(c.after/10000).toFixed(1)+'万円</div><div class="pc">+'+r.pct.toFixed(1)+'%</div><div class="an">年間 <b>+'+f0(Math.round(r.annual/10000))+'万円</b></div></div>'}).join('')}
  // --- インタビュー(あるときだけ章を作る)
  if(VOICES.length){var sec=document.createElement('section');sec.id='voices';sec.className='pad';
   sec.innerHTML='<div class="wrap"><h2 class="en">voices</h2><p class="jp">つくり手の声</p><div class="aw">'+VOICES.map(function(x){return '<article class="awc"><span class="aw-k">'+(x.role||'')+'</span><h3 class="aw-n">'+(x.name||'')+'</h3><p class="aw-t">'+(x.text||'')+'</p></article>'}).join('')+'</div></div>';
