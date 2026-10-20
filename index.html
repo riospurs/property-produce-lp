@@ -297,6 +297,48 @@ footer a{color:#d8d4ca}
   .fbody{grid-template-columns:1fr}
 }
 
+/* impact: 戸数の早見 */
+.imp-d .k{font-size:1rem;letter-spacing:.14em;color:#9b968b}
+.imp-d .head{display:flex;align-items:baseline;gap:clamp(16px,3vw,48px);flex-wrap:wrap;margin-top:6px}
+.imp-d .num{font-family:var(--serif);font-weight:300;color:#fff;line-height:1}
+.imp-d .num small{white-space:nowrap;font:400 .38em var(--sans);color:#cfcac0;margin-left:.3em}
+.imp-d .num i{font-style:normal;color:var(--wood)}
+.imp-d .head .num{font-size:clamp(56px,8vw,128px)}
+.imp-d .head p{font-size:1.1rem;color:#e6e2d8}
+.imp-d .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,28px);margin-top:36px}
+.imp-d .cell{border-top:1px solid #46433e;padding-top:16px}
+.imp-d .cell .u{font-size:1rem;color:#e6e2d8}
+.imp-d .cell .num{font-size:clamp(40px,5vw,84px);margin-top:6px}
+.imp-d .cell .num small{display:block;margin:.5em 0 0}
+.imp-d .cell.hl{border-top:2px solid var(--wood)}
+.imp-d .cell.hl .num{color:#f0d9bd}
+.imp-d+.cs-wrap{margin-top:clamp(56px,7vw,100px)}
+.imp-d .note{margin-top:26px}
+@media(max-width:820px){.imp-d .row{grid-template-columns:1fr 1fr}}
+/* flow: 縦長のボックス+番号が重なる配置(確定) */
+.fl{background:#ececec;padding-block:clamp(64px,8vw,110px);position:relative}
+.fl .wrap{position:relative}
+.fl-title{font-size:1.2rem;font-weight:700;color:#111;margin-bottom:clamp(28px,4vw,56px)}
+.fl-top{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,6vw,100px);align-items:start}
+.fl-intro{font-size:1rem;line-height:2;color:#222}
+.fl-boxes{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;column-gap:0}
+.fl-b{position:relative;background:#fff;aspect-ratio:100/185;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1rem;font-weight:700;color:#111;line-height:1.7;padding:0 6px 18%}
+.fl-b em{position:absolute;left:-2px;bottom:-.8rem;font:300 clamp(40px,4.2vw,68px)/1 var(--serif);font-style:normal;color:var(--wood);letter-spacing:.02em}
+.fl-ar{display:block;width:clamp(28px,5vw,80px);align-self:end;margin-bottom:12%;height:1px;background:#111;position:relative}
+.fl-ar::after{content:"";position:absolute;right:0;top:-4px;width:8px;height:8px;border-top:1px solid #111;border-right:1px solid #111;transform:rotate(45deg) translate(-1px,1px)}
+.fl-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,36px) clamp(18px,2.4vw,24px);margin-top:clamp(56px,7vw,96px)}
+.fl-c{position:relative;background:#fff;padding:clamp(40px,4.4vw,64px) clamp(24px,3vw,44px) clamp(28px,3vw,44px)}
+.fl-c .n{position:absolute;left:clamp(24px,3vw,32px);top:-1.1rem;font:300 clamp(40px,4.2vw,68px)/1 var(--serif);color:var(--wood);letter-spacing:.02em}
+.fl-c .h{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fl-c h3{font-size:1.2rem;font-weight:700;color:#111}
+.fl-c .ic{width:clamp(34px,3.2vw,48px);height:clamp(34px,3.2vw,48px);color:#111;flex:none}
+.fl-c .ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.fl-c p{margin-top:1.4rem;font-size:1rem;line-height:2;color:#222}
+@media(max-width:820px){
+ .fl-top{grid-template-columns:1fr}
+ .fl-boxes{grid-template-columns:1fr 1fr;row-gap:2.2rem;column-gap:14px}.fl-ar{display:none}.fl-b{aspect-ratio:auto;min-height:150px;padding-bottom:30px}
+ .fl-cards{grid-template-columns:1fr}
+}
 /* 強み(確定レイアウト: 参考の構図+数字主役) */
 #why{background:var(--paper);padding-block:clamp(64px,8vw,110px);padding-inline:3vw;position:relative;overflow:hidden}
 #why .sg-w{max-width:1500px;margin:0 auto;position:relative}
@@ -381,7 +423,6 @@ footer a{color:#d8d4ca}
 <header class="onhero" id="hdr">
   <a class="logo" href="#top"><b>diff</b><small>PROPERTY PRODUCE</small></a>
   <nav>
-    <a class="l" href="#situation">situation</a>
     <a class="l" href="#why">strengths</a>
     <a class="l" href="#works">works</a>
     <a class="l" href="#impact">impact</a>
@@ -503,48 +544,33 @@ footer a{color:#d8d4ca}
 <section id="impact" class="impact pad">
   <div class="wrap">
     <h2 class="en">impact</h2><p class="jp" id="i-jp"></p>
-    <div class="imp-head">
-      <div class="big2" id="i-total"></div>
-      <p class="subl" id="i-total-sub"></p>
+    <div class="imp-d">
+      <div class="k">賃料アップの実績をあてはめると</div>
+      <div class="head"><div class="num" id="i-total"></div><p>1戸あたりの平均。戸数をかけると、年間では…</p></div>
+      <div class="row" id="i-row"></div>
+      <p class="note">※ 実績の平均(1戸あたり月約1.3万円)に、戸数と12か月をかけた試算です。実際の収益を保証するものではありません。</p>
+      <a class="cta" href="#contact">自分の土地の場合を相談する</a>
     </div>
-    <div class="cs-wrap" id="cs-wrap"><div class="cs-grid p4" id="i-cases"></div>
+    <div class="cs-wrap" id="cs-wrap"><h3 class="sub">実績の例</h3><div class="cs-grid p4" id="i-cases"></div>
       <p class="note" id="i-basis"></p></div>
-    <h3 class="sub eg">あなたの土地なら(例)</h3>
-    <div class="imp-simple">
-      <div class="imp-left">
-        <span class="lab" id="i-lab"></span>
-        <div class="big" id="i-delta"></div>
-        <p class="subl" id="i-sub"></p>
-        <span class="lab lab2">空室や費用も含めた、年間の手残り</span>
-        <div class="cmp" id="i-cmp"></div>
-        <p class="cond" id="i-cond"></p>
-      </div>
-      <div class="imp-right">
-        <div class="tbl-wrap"><table class="tree" id="i-tree"></table></div>
-        <p class="note">※ モデルケースによる試算の例です。実際の収益を保証するものではありません。税金は含みません(税引前)。</p>
-        <a class="cta" href="#contact">自分の土地の場合を相談する</a>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- 5 フロー(4段階) -->
-<section id="flow" class="paper pad">
+<section id="flow" class="fl pad">
   <div class="wrap">
-    <h2 class="en">flow</h2><p class="jp">ご相談から運営まで</p>
-    <div class="flowtop">
-      <div class="intro">
-        <h3>企画から運営まで、<br>ひとつながりで。</h3>
-        <p>賃貸住宅は、計画、建築、竣工後の運営と、段階ごとに考えることが変わります。diffは、企画から管理までを一貫して担当し、建てる前に、収益の見通しまで設計します。</p>
-      </div>
-      <div class="ov">
-        <div class="ovc"><div class="box"><span class="bn en">01</span>ヒアリング<br>・企画</div></div>
-        <div class="ovc"><div class="box"><span class="bn en">02</span>設計<br>・施工監理</div></div>
-        <div class="ovc"><div class="box"><span class="bn en">03</span>入居者<br>募集</div></div>
-        <div class="ovc"><div class="box"><span class="bn en">04</span>運営<br>管理</div></div>
+    <h2 class="en" style="position:absolute;left:-9999px">flow</h2>
+    <h3 class="fl-title">賃貸住宅をつくる場合</h3>
+    <div class="fl-top">
+      <p class="fl-intro">賃貸住宅は、計画、建築、竣工後の運営と、段階ごとに考えることが変わります。<br>diffは、土地の活用の企画から、設計・施工の監理、入居者の募集、竣工後の管理・運営まで、ひとつながりでお手伝いします。建てる前に、収益の見通しまで設計し、安定して続く事業になるプランを、資金計画も含めてご提案します。</p>
+      <div class="fl-boxes">
+        <div class="fl-b"><span>ヒアリング<br>・<br>企画</span><em>01</em></div><i class="fl-ar"></i>
+        <div class="fl-b"><span>設計<br>・<br>施工監理</span><em>02</em></div><i class="fl-ar"></i>
+        <div class="fl-b"><span>入居者募集</span><em>03</em></div><i class="fl-ar"></i>
+        <div class="fl-b"><span>運営管理</span><em>04</em></div>
       </div>
     </div>
-    <div class="fd" id="fd"></div>
+    <div class="fl-cards" id="fd"></div>
     <a class="cta dk" href="#contact">ご相談の流れを聞いてみる</a>
   </div>
 </section>
@@ -620,6 +646,12 @@ var LOGOS={'German Design Award':'logo-gda','グッドデザイン賞':'logo-gma
 var ICONS={
  person:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>',
  camera:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2.5h5L16 7"/></svg>',
+ pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+ ruler:'<svg viewBox="0 0 24 24"><rect x="2.5" y="8" width="19" height="8" rx="1"/><path d="M6 8v3M9.5 8v4.5M13 8v3M16.5 8v4.5"/></svg>',
+ key:'<svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3.5M15.5 12v2.5"/></svg>',
+ cycle:'<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-13.6-5.7L4 8.5"/><path d="M4 4v4.5h4.5"/><path d="M4 12a8 8 0 0 0 13.6 5.7L20 15.5"/><path d="M20 20v-4.5h-4.5"/></svg>',
+ megaphone:'<svg viewBox="0 0 24 24"><path d="M3 10v4h3l8 4V6L6 10H3z"/><path d="M17 9a4 4 0 0 1 0 6"/><path d="M7 14l1 5h2l-1-4"/></svg>',
+ clipboard:'<svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="1.5"/><path d="M9 4V2.5h6V4"/><path d="M8.5 10l1 1 2-2M13 10h3M8.5 15l1 1 2-2M13 15h3"/></svg>',
  trend:'<svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg>',
  building:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>',
  light:'<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>'
@@ -646,37 +678,9 @@ var MODEL={
  diff:{rentUp:10,occ:97,opex:21}
 };
 (function(){
- var $=function(id){return document.getElementById(id)};
- var f0=function(n){return Math.round(n).toLocaleString('ja-JP')};
- var man=function(y){return Math.round(y/10000)};
- var sg=function(n){return (n>0?'+':n<0?'−':'')+f0(Math.abs(n))};
- function annuity(loan,rate,years){var r=rate/12,n=years*12;var pm=r===0?loan/n:loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);return pm*12}
- function calc(m,sc){
-  var c=m.common,d=sc==='diff';
-  var rent=d?m.general.rent*(1+m.diff.rentUp/100):m.general.rent;
-  var occ=(d?m.diff.occ:m.general.occ)/100,opr=(d?m.diff.opex:m.general.opex)/100;
-  var gpi=c.units*c.area*rent*12,vac=gpi*(1-occ),egi=gpi-vac,opex=egi*opr,noi=egi-opex;
-  var cost=c.units*c.area*c.costPerSqm,loan=cost*c.loanRatio,ads=annuity(loan,c.rate,c.years);
-  return {gpi:gpi,vac:vac,opex:opex,ads:ads,btcf:noi-ads,cost:cost,loan:loan};
- }
- var g=calc(MODEL,'general'),d=calc(MODEL,'diff'),c=MODEL.common;
- var gb=man(g.btcf),db=man(d.btcf),pc=gb>0?Math.round((db/gb-1)*100):null;
- $('i-lab').textContent='賃料が'+MODEL.diff.rentUp+'%上がると、年間で(満室ベース・例)';
- $('i-delta').innerHTML='+'+f0(man(d.gpi-g.gpi))+'<small>万円 / 年</small>';
- $('i-sub').textContent='例:'+c.units+'戸・1戸'+c.area+'㎡・賃料'+f0(MODEL.general.rent)+'円/㎡ → '+f0(Math.round(MODEL.general.rent*(1+MODEL.diff.rentUp/100)))+'円/㎡';
- var mx=Math.max(gb,db);
- $('i-cmp').innerHTML=
-  '<div class="row"><span>一般的な運営</span><i style="width:'+Math.max(8,Math.round(gb/mx*100))+'%"><b>'+f0(gb)+'万円</b></i></div>'+
-  '<div class="row d"><span>diffの場合</span><i style="width:'+Math.max(8,Math.round(db/mx*100))+'%"><b>'+f0(db)+'万円'+(pc!==null?'(+'+pc+'%)':'')+'</b></i></div>';
- $('i-cond').textContent='例:'+c.units+'戸・1戸'+c.area+'㎡/総事業費'+f0(man(d.cost))+'万円(借入'+Math.round(c.loanRatio*100)+'%・金利'+(c.rate*100).toFixed(1)+'%・'+c.years+'年)/入居率 '+MODEL.general.occ+'%→'+MODEL.diff.occ+'%・賃料 +'+MODEL.diff.rentUp+'%';
- var rows=[['満室時の賃料収入','gpi','r',1,''],['空室による損失','vac','v',-1,''],['運営費(管理・修繕など)','opex','c',-1,''],['借入の返済','ads','',-1,''],['年間の手残り(税引前)','btcf','',1,'res']];
- var h='<tr><th></th><th>一般的な運営</th><th>diff</th><th>差</th></tr>';
- rows.forEach(function(r){
-  var gv=r[3]*man(g[r[1]]),dv=r[3]*man(d[r[1]]),df=dv-gv;
-  var dot=r[2]?'<i class="dot '+r[2]+'"></i>':'';
-  h+='<tr class="'+(r[2]?'lv ':'')+r[4]+'"><td>'+dot+r[0]+'</td><td>'+sg(gv).replace('+','')+'</td><td>'+sg(dv).replace('+','')+'</td><td class="'+(df>0?'pos':'')+'">'+(df===0?'—':sg(df))+'</td></tr>';
- });
- $('i-tree').innerHTML=h;
+ var ov=RENT_UP.overall,perM=Math.round(ov.monthlyMan/ov.units*10)/10;   // 1戸あたり 月(万円)
+ document.getElementById('i-total').innerHTML='<i>+</i>'+perM+'<small>万円 / 月</small>';
+ document.getElementById('i-row').innerHTML=[5,10,15,20].map(function(n){return '<div class="cell'+(n===10?' hl':'')+'"><div class="u">'+n+'戸の建物</div><div class="num"><i>+</i>'+Math.round(perM*n*12)+'<small>万円 / 年</small></div></div>'}).join('');
 })();
 var IMGSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.webp'};
 var VIDSRC=function(k){return (window.IMG&&window.IMG[k])||'img/'+k+'.mp4'};
@@ -714,10 +718,8 @@ function sil(fl,w,roof){var fh=14,x=60-w/2,y=100-fl*fh,t='<svg viewBox="0 0 120 
  $('sg-ill').innerHTML=cs.map(function(c,n){return '<figure>'+BLD[n%BLD.length]+'<div class="sg-pct"><b>+'+c.pct.toFixed(1)+'%</b><span>'+c.name+'</span></div></figure>'}).join('');
  $('sg-three').innerHTML=UP_REASONS.map(function(r){return '<div><div class="bi">'+ICONS[r.i]+'</div><b>'+r.t+'</b><span>'+r.d+'</span></div>'}).join('');
  $('p2-note').textContent=ov.basis;
-// --- 数字の章: 実データ(4棟47戸)
- $('i-jp').textContent='賃料が約'+pct+'%上がると';
- $('i-total').innerHTML=ov.buildings+'棟'+ov.units+'戸で、月 <small>+</small>'+ov.monthlyMan+'万円<small>(年 約'+ov.annualMan+'万円)</small>';
- $('i-total-sub').textContent='直近1年・竣工1年以内の満室物件。賃料査定の中央値との比較です。';
+// --- 数字の章: 実績の平均(1戸あたり)と4つの例
+ $('i-jp').textContent='賃料が約'+pct+'%上がると(実績の例)';
  $('i-cases').innerHTML=cs.map(function(c,n){return '<div class="cs"><div class="ilt">'+BLD[n%BLD.length]+'</div><h4>'+c.name+'</h4><div class="csr">'+c.unitsLabel+'</div><div class="pc">+'+c.pct.toFixed(1)+'%</div><div class="an">1戸あたり 月 <b>'+uf(c.delta)+'</b></div></div>'}).join('');
  $('i-basis').textContent=ov.basis;
  // --- インタビュー(あるときだけ章を作る)
@@ -733,12 +735,12 @@ function sil(fl,w,roof){var fh=14,x=60-w/2,y=100-fl*fh,t='<svg viewBox="0 0 120 
 // ===== フロー(工程ごとの「やること」と「収益が上がる理由」)=====
 // フロー(4段階)。i=アイコン / eff=収益に効く先
 var FD=[
- {n:'01',i:'light',t:'ヒアリング・企画',lead:'建てる前に、収益の見通しまで決めます。',li:['土地の条件とご希望、資金の状況をうかがう','周辺の需要と賃料相場を調べる','住む人(ペルソナ)を決め、収支と資金の計画を立てる'],eff:'空室のリスクを減らす'},
- {n:'02',i:'building',t:'設計・施工監理',lead:'設計どおり、予算どおりに仕上げます。',li:['コンセプトに沿って、間取り・設備・外観を設計する','施工は、提携の施工会社と連携する','工事中も、図面・工程どおりかを確認する'],eff:'賃料を上げる・コストを適正に'},
- {n:'03',i:'camera',t:'入居者募集',lead:'魅力を伝えて、賃料を下げずに決めます。',li:['竣工の前から、募集を始める','写真と資料を整え、仲介会社へコンセプトを伝える','賃料を設定し、入居者を決める'],eff:'空室の期間を短くする'},
- {n:'04',i:'trend',t:'運営管理',lead:'満室を保ちながら、賃料を高めます。',li:['入居者の要望やトラブルに、すぐ対応する','更新・退去のたびに、募集と賃料を見直す','修繕を計画的に行い、建物の価値を保つ'],eff:'賃料を高め、満室を保つ'}
+ {n:'01',i:'pin',t:'ヒアリング・企画',p:'建てる前に、収益の見通しまで決めます。土地の条件やご希望、資金の状況をうかがい、周辺の需要と賃料相場を調べます。そのうえで、住む人(ペルソナ)を決め、収支と資金の計画まで組み立てます。空室のリスクを、最初の段階で減らす工程です。'},
+ {n:'02',i:'ruler',t:'設計・施工監理',p:'設計どおり、予算どおりに仕上げます。決めたコンセプトに沿って、間取り・設備・外観を設計し、施工は提携の施工会社と連携して進めます。工事の間も、図面と工程のとおりに進んでいるかを現場で確認し、賃料を上げられる建物を、適正なコストでつくります。'},
+ {n:'03',i:'key',t:'入居者募集',p:'魅力を伝えて、賃料を下げずに決めます。竣工の前から募集を始め、写真と資料を整えて、仲介会社へ建物のコンセプトを伝えます。賃料は、設計の段階で見込んだ水準を保ったまま設定し、空室の期間を短くします。'},
+ {n:'04',i:'cycle',t:'運営管理',p:'満室を保ちながら、賃料を高めます。入居者の要望やトラブルにすぐ対応し、更新や退去のたびに、募集の仕方と賃料を見直します。修繕は計画的に行い、建物の価値を長く保ちます。建てて終わりではなく、運営まで責任をもちます。'}
 ];
-document.getElementById('fd').innerHTML=FD.map(function(f){return '<div class="fdc"><div class="hd"><span class="bd en">'+f.n+'</span><span class="fi">'+ICONS[f.i]+'</span><h3>'+f.t+'</h3></div><p class="lead">'+f.lead+'</p><ul>'+f.li.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><span class="eff"><b>効く先</b>'+f.eff+'</span></div>'}).join('');
+document.getElementById('fd').innerHTML=FD.map(function(f){return '<div class="fl-c"><span class="n">'+f.n+'</span><div class="h"><h3>'+f.t+'</h3><span class="ic">'+ICONS[f.i]+'</span></div><p>'+f.p+'</p></div>'}).join('');
 var W=[
  {t:'the trias kashiwa',c:'RENTAL APARTMENT',award:'German Design Award',d:'格子状のバルコニーが陰影をつくる外観と、波打つ木のルーバーの共用廊下。屋上のテラスも備えます。',p:['award-kashiwa-1','award-kashiwa-2','award-kashiwa-3','award-kashiwa-4','award-kashiwa-5']},
  {t:'the trias mishuku',c:'RENTAL APARTMENT',award:'German Design Award',d:'コンクリートの躯体に、細いワイヤーの手すり。中庭に光が落ちる、ひと続きの共用部。',p:['award-mishuku-1','award-mishuku-2','award-mishuku-3','award-mishuku-4','award-mishuku-5']},
